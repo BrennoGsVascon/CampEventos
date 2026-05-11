@@ -1,0 +1,80 @@
+<h1>Eventos</h1>
+<hr>
+<p>Total de eventos: {{ eventos.length }}</p>
+
+<form class="row g-2 align-items-center mb-6">
+        <div class="d-flex align-items-center gap-2 mb-3">
+    <label for="filtroLista" class="form-label fw-bold mb-0">
+        Filtro:
+    </label>
+  <input
+    type="text"
+    class="form-control"
+    style="max-width: 200px;"
+    placeholder="buscar"
+    name="filtroLista"
+    [(ngModel)] = "filtroLista"
+  />
+</div>
+</form>
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+                <th><button
+                    type="button"
+                    class="btn btn-outline-light btn-sm"
+                    (click)="alterarImagem()">
+
+                    {{ exibirImagem ? 'Ocultar' : 'Exibir'}}
+                </button></th>
+            <th>Tema</th>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Qtd Pessoas</th>
+            <th>Lote</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    @if (eventosFiltrados && eventosFiltrados.length > 0 ) {
+
+         <tbody>
+            @for (evento of eventosFiltrados; track evento.eventoId){
+        <tr>
+            <td>{{evento.eventoId}}</td>
+        
+            <td>
+                @if (exibirImagem){
+                <img [src]="evento.imagemURL"
+                     [alt]="evento.tema"
+                     [style.width.px]="larguraImagem"
+                     [style.margin.px]="margemImagem"/>
+                }
+            </td>
+
+            <td>{{evento.tema}}</td>
+            <td>{{evento.local}}</td>
+            <td>{{evento.dataEvento}}</td>
+            <td>{{evento.qtdPessoas}}</td>
+            <td>{{evento.lote}}</td>
+            <td>
+                <button type="button" class="btn btn-primary btn-sm me-2">Editar</button>
+                <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+
+    } @else {
+   
+    <tfoot>
+        <tr>
+            <td colspan="8" class="text-center">
+                <h4> Nenhum evento encontrado! </h4>
+            </td>
+        </tr>
+    </tfoot>
+}
+</table>
+

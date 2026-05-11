@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CampEventos.Domain\CampEventos.Domain.csproj" />
+    <ProjectReference Include="..\CampEventos.Persistence\CampEventos.Persistence.csproj" />
+  
+  </ItemGroup>
+
+</Project>

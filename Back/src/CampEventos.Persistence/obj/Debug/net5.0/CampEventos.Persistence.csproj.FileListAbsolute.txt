@@ -1,0 +1,15 @@
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\bin\Debug\net5.0\CampEventos.Persistence.deps.json
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\bin\Debug\net5.0\CampEventos.Persistence.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\bin\Debug\net5.0\ref\CampEventos.Persistence.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\bin\Debug\net5.0\CampEventos.Persistence.pdb
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\obj\Debug\net5.0\CampEventos.Persistence.csprojAssemblyReference.cache
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\obj\Debug\net5.0\CampEventos.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\obj\Debug\net5.0\CampEventos.Persistence.AssemblyInfoInputs.cache
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\obj\Debug\net5.0\CampEventos.Persistence.AssemblyInfo.cs
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\obj\Debug\net5.0\CampEventos.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\obj\Debug\net5.0\CampEventos.Persistence.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\obj\Debug\net5.0\ref\CampEventos.Persistence.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\obj\Debug\net5.0\CampEventos.Persistence.pdb
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\bin\Debug\net5.0\CampEventos.Domain.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\bin\Debug\net5.0\CampEventos.Domain.pdb
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Persistence\obj\Debug\net5.0\CampEventos.Persistence.csproj.CopyComplete

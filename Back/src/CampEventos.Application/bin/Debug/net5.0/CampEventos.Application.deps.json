@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "CampEventos.Application/1.0.0": {
+        "dependencies": {
+          "CampEventos.Domain": "1.0.0",
+          "CampEventos.Persistence": "1.0.0"
+        },
+        "runtime": {
+          "CampEventos.Application.dll": {}
+        }
+      },
+      "CampEventos.Domain/1.0.0": {
+        "runtime": {
+          "CampEventos.Domain.dll": {}
+        }
+      },
+      "CampEventos.Persistence/1.0.0": {
+        "dependencies": {
+          "CampEventos.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CampEventos.Persistence.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CampEventos.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CampEventos.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CampEventos.Persistence/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
