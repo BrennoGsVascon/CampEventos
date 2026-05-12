@@ -53,13 +53,6 @@ TemporaryDependencyNodeTargetIdentifier=net5.0
 
 [sourceFiles]
 Controllers/EventoController.cs
-Data/
- DataContext.cs
- Migrations/
-  20260507113327_Initial.cs
-  20260507113327_Initial.Designer.cs
-  DataContextModelSnapshot.cs
-Models/Evento.cs
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs
  CampEventos.API.AssemblyInfo.cs

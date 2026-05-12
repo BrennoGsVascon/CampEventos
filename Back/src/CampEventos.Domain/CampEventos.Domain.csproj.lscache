@@ -52,10 +52,14 @@ TemporaryDependencyNodeTargetIdentifier=net5.0
 /warnaserror+:NU1605
 
 [sourceFiles]
-Class1.cs
+Apresentador.cs
+ApresentadorEvento.cs
+Evento.cs
+Lote.cs
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs
  CampEventos.Domain.AssemblyInfo.cs
+RedeSocial.cs
 
 [metadataReferences]
 <DOTNET>/packs/Microsoft.NETCore.App.Ref/5.0.0/ref/net5.0/

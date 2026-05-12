@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CampEventos.API.Models;
+using CampEventos.Domain;
+using CampEventos.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -12,8 +13,8 @@ namespace CampEventos.API.Controllers
     [Route("api/[controller]")]
     public class EventosController : ControllerBase
     {
-        private readonly DataContext context;
-        public EventosController(DataContext context)
+        private readonly CampEventosContext context;
+        public EventosController(CampEventosContext context)
         {
             this.context = context;
         
@@ -28,7 +29,7 @@ namespace CampEventos.API.Controllers
     [HttpGet("{id}")]
     public ActionResult<Evento> GetById(int id)
     {
-        var evento = context.Eventos.FirstOrDefault(e => e.EventoId == id);
+        var evento = context.Eventos.FirstOrDefault(e => e.Id == id);
 
         if (evento == null)
             return NotFound();

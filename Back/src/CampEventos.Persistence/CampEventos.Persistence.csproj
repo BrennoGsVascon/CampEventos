@@ -8,4 +8,9 @@
     <ProjectReference Include="..\CampEventos.Domain\CampEventos.Domain.csproj" />
   </ItemGroup>
 
+ <ItemGroup>
+   <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.2" />
+   <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.2" />
+ </ItemGroup>
+
 </Project>

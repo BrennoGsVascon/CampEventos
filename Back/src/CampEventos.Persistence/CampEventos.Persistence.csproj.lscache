@@ -52,7 +52,13 @@ TemporaryDependencyNodeTargetIdentifier=net5.0
 /warnaserror+:NU1605
 
 [sourceFiles]
-Class1.cs
+CampEventosContext.cs
+CampEventosPersistence.cs
+ICampEventosPersistence.cs
+Migrations/
+ 20260512110034_Inittial.cs
+ 20260512110034_Inittial.Designer.cs
+ CampEventosContextModelSnapshot.cs
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs
  CampEventos.Persistence.AssemblyInfo.cs
@@ -87,7 +93,6 @@ obj/Debug/net5.0/
  System.Data.dll
  System.Diagnostics.Contracts.dll
  System.Diagnostics.Debug.dll
- System.Diagnostics.DiagnosticSource.dll
  System.Diagnostics.FileVersionInfo.dll
  System.Diagnostics.Process.dll
  System.Diagnostics.StackTrace.dll
@@ -212,11 +217,28 @@ obj/Debug/net5.0/
  System.Xml.XPath.dll
  System.Xml.XPath.XDocument.dll
  WindowsBase.dll
+<NUGET>/
+ humanizer.core/2.8.26/lib/netstandard2.0/Humanizer.dll
+ microsoft.entityframeworkcore.abstractions/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll
+ microsoft.entityframeworkcore.design/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.dll
+ microsoft.entityframeworkcore.relational/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll
+ microsoft.entityframeworkcore/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.dll
+ microsoft.extensions.caching.abstractions/5.0.0/lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll
+ microsoft.extensions.caching.memory/5.0.0/lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll
+ microsoft.extensions.configuration.abstractions/5.0.0/lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll
+ microsoft.extensions.dependencyinjection.abstractions/5.0.0/lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+ microsoft.extensions.dependencyinjection/5.0.1/lib/net5.0/Microsoft.Extensions.DependencyInjection.dll
+ microsoft.extensions.logging.abstractions/5.0.0/lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll
+ microsoft.extensions.logging/5.0.0/lib/netstandard2.1/Microsoft.Extensions.Logging.dll
+ microsoft.extensions.options/5.0.0/lib/net5.0/Microsoft.Extensions.Options.dll
+ microsoft.extensions.primitives/5.0.0/lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll
+ system.diagnostics.diagnosticsource/5.0.1/lib/net5.0/System.Diagnostics.DiagnosticSource.dll
 
 [analyzerReferences]
 <DOTNET>/sdk/10.0.203/Sdks/Microsoft.NET.Sdk/analyzers/
  Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
  Microsoft.CodeAnalysis.NetAnalyzers.dll
+<NUGET>/microsoft.entityframeworkcore.analyzers/5.0.2/analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll
 
 [analyzerConfigFiles]
 <DOTNET>/sdk/10.0.203/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_5_default.globalconfig

@@ -723,7 +723,9 @@
       },
       "CampEventos.Persistence/1.0.0": {
         "dependencies": {
-          "CampEventos.Domain": "1.0.0"
+          "CampEventos.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.2",
+          "Microsoft.EntityFrameworkCore.Tools": "5.0.2"
         },
         "runtime": {
           "CampEventos.Persistence.dll": {}
