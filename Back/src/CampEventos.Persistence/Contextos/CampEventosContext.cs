@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using CampEventos.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace CampEventos.Persistence
+namespace CampEventos.Persistence.Contextos
 {
     public class CampEventosContext : DbContext{
         public CampEventosContext(DbContextOptions<CampEventosContext> options) : base(options) {}

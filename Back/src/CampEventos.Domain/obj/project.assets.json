@@ -8,23 +8,23 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\br4nn\\.nuget\\packages\\": {},
+    "C:\\Users\\e.brenno.silva\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj",
       "projectName": "CampEventos.Domain",
-      "projectPath": "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj",
-      "packagesPath": "C:\\Users\\br4nn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Domain\\obj\\",
+      "projectPath": "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj",
+      "packagesPath": "C:\\Users\\e.brenno.silva\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\br4nn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\e.brenno.silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -33,6 +33,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

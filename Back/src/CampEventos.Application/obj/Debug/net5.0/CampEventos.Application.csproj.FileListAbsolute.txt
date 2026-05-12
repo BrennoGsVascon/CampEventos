@@ -15,3 +15,20 @@ C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEven
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Application\bin\Debug\net5.0\CampEventos.Domain.pdb
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Application\bin\Debug\net5.0\CampEventos.Persistence.pdb
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Application\obj\Debug\net5.0\CampEventos.Application.csproj.CopyComplete
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\bin\Debug\net5.0\CampEventos.Application.deps.json
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\bin\Debug\net5.0\CampEventos.Application.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\bin\Debug\net5.0\ref\CampEventos.Application.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\bin\Debug\net5.0\CampEventos.Application.pdb
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\bin\Debug\net5.0\CampEventos.Domain.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\bin\Debug\net5.0\CampEventos.Persistence.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\bin\Debug\net5.0\CampEventos.Domain.pdb
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\bin\Debug\net5.0\CampEventos.Persistence.pdb
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\obj\Debug\net5.0\CampEventos.Application.csprojAssemblyReference.cache
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\obj\Debug\net5.0\CampEventos.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\obj\Debug\net5.0\CampEventos.Application.AssemblyInfoInputs.cache
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\obj\Debug\net5.0\CampEventos.Application.AssemblyInfo.cs
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\obj\Debug\net5.0\CampEventos.Application.csproj.CoreCompileInputs.cache
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\obj\Debug\net5.0\CampEventos.Application.csproj.CopyComplete
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\obj\Debug\net5.0\CampEventos.Application.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\obj\Debug\net5.0\ref\CampEventos.Application.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Application\obj\Debug\net5.0\CampEventos.Application.pdb

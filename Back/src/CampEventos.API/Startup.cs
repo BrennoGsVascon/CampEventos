@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CampEventos.Application;
+using CampEventos.Application.Contratos;
 using CampEventos.Persistence;
+using CampEventos.Persistence.Contextos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +35,9 @@ namespace CampEventos.API
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
             services.AddControllers();
+
+            services.AddScoped<IEventoService, EventoService>();
+
             services.AddCors();
             services.AddSwaggerGen(c =>
             {

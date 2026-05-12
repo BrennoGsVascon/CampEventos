@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CampEventos.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2d1a7c76eecb66cd78cb315e3a89775f2ec2a25")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("CampEventos.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CampEventos.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
