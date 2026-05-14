@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using CampEventos.Domain;
 using Microsoft.EntityFrameworkCore;
@@ -18,8 +19,19 @@ namespace CampEventos.Persistence.Contextos
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<ApresentadorEvento>()
-            .HasKey(AP => new { AP.EventoId, AP.ApresentadorId });
+                .HasKey(AP => new { AP.EventoId, AP.ApresentadorId });
+
+            modelBuilder.Entity<Evento>()
+                .HasMany(e => e.RedesSociais)
+                .WithOne(rs => rs.Evento)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Apresentador>()
+                .HasMany(e => e.RedesSociais)
+                .WithOne(rs => rs.Apresentador)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

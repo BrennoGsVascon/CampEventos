@@ -6,6 +6,7 @@ using CampEventos.Application;
 using CampEventos.Application.Contratos;
 using CampEventos.Persistence;
 using CampEventos.Persistence.Contextos;
+using CampEventos.Persistence.Contratos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,9 +35,15 @@ namespace CampEventos.API
             services.AddDbContext<CampEventosContext>(
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
-            services.AddControllers();
+            services.AddControllers()
+                    .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling =
+                        Newtonsoft.Json.ReferenceLoopHandling.Ignore
+
+                    );
 
             services.AddScoped<IEventoService, EventoService>();
+            services.AddScoped<IGeralPersist, GeralPersist>();
+            services.AddScoped<IEventoPersist, EventoPersist>();
 
             services.AddCors();
             services.AddSwaggerGen(c =>

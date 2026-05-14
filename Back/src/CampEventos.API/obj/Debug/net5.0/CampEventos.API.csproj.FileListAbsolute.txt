@@ -124,3 +124,7 @@ C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\obj\Debug\n
 C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\obj\Debug\net5.0\ref\CampEventos.API.dll
 C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\obj\Debug\net5.0\CampEventos.API.pdb
 C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\obj\Debug\net5.0\CampEventos.API.genruntimeconfig.cache
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

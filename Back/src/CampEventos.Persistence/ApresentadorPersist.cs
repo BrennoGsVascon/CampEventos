@@ -28,7 +28,7 @@ namespace CampEventos.Persistence
                     .ThenInclude(ape => ape.Evento);
             }
 
-                    query = query.OrderBy(ap =>ap.Id);
+                    query = query.AsNoTracking().OrderBy(ap =>ap.Id);
 
                     return await query.ToArrayAsync();
         }
@@ -45,7 +45,7 @@ namespace CampEventos.Persistence
                     .ThenInclude(ape => ape.Apresentador);
             }
 
-                    query = query.OrderBy(ap =>ap.Id)
+                    query = query.AsNoTracking().OrderBy(ap =>ap.Id)
                                  .Where(ap => ap.Nome.ToLower().Contains(nome.ToLower()));
 
                     return await query.ToArrayAsync();
@@ -63,7 +63,7 @@ namespace CampEventos.Persistence
                     .ThenInclude(ape => ape.Apresentador);
             }
 
-                    query = query.OrderBy(ap =>ap.Id)
+                    query = query.AsNoTracking().OrderBy(ap =>ap.Id)
                                  .Where(ap => ap.Id == apresentadorId);
 
                     return await query.FirstOrDefaultAsync();

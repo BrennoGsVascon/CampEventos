@@ -98,7 +98,7 @@ namespace CampEventos.API.Controllers
         try
         {
             var evento = await _eventoService.UpdateEvento(id, model);
-            if (evento == null) return NotFound("Eventos por tema não encontrado.");
+            if (evento == null) return BadRequest("Eventos por tema não encontrado.");
         
             return Ok(evento);
         }
