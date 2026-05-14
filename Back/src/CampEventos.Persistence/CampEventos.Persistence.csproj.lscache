@@ -52,9 +52,14 @@ TemporaryDependencyNodeTargetIdentifier=net5.0
 /warnaserror+:NU1605
 
 [sourceFiles]
-CampEventosContext.cs
-CampEventosPersistence.cs
-ICampEventosPersistence.cs
+ApresentadorPersist.cs
+Contextos/CampEventosContext.cs
+Contratos/
+ IApresentadorPersist.cs
+ IEventoPersist.cs
+ IGeralPersist.cs
+EventoPersist.cs
+GeralPersist.cs
 Migrations/
  20260512110034_Inittial.cs
  20260512110034_Inittial.Designer.cs
