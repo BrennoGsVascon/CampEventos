@@ -25,7 +25,7 @@
                     type="button"
                     class="btn btn-outline-light btn-sm"
                     (click)="alterarImagem()">
-
+                    <i class="{{!exibirImagem ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
                     {{ exibirImagem ? 'Ocultar' : 'Exibir'}}
                 </button></th>
             <th>Tema</th>
@@ -39,9 +39,9 @@
     @if (eventosFiltrados && eventosFiltrados.length > 0 ) {
 
          <tbody>
-            @for (evento of eventosFiltrados; track evento.eventoId){
+            @for (evento of eventosFiltrados; track evento.id){
         <tr>
-            <td>{{evento.eventoId}}</td>
+            <td>{{evento.id}}</td>
         
             <td>
                 @if (exibirImagem){
@@ -54,12 +54,18 @@
 
             <td>{{evento.tema}}</td>
             <td>{{evento.local}}</td>
-            <td>{{evento.dataEvento}}</td>
+            <td>{{evento.dataEvento | dateTimeFormat}}</td>
             <td>{{evento.qtdPessoas}}</td>
-            <td>{{evento.lote}}</td>
+            <td>{{evento.lotes[0].nome}}</td>
             <td>
-                <button type="button" class="btn btn-primary btn-sm me-2">Editar</button>
-                <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+                <button type="button" class="btn btn-primary btn-sm me-2">
+                    <i class="fa fa-edit"></i>
+                    Editar
+                </button>
+                <button type="button" class="btn btn-danger btn-sm" (click)="openModal(template,evento.id)">
+                    <i class="fa fa-trash"></i>
+                    Excluir
+                </button>
             </td>
         </tr>
         }
@@ -77,4 +83,23 @@
     </tfoot>
 }
 </table>
+    <ng-template #template let-modal>
+    <div class="modal-body text-center">
+        <p>Tem certeza que quer excluir?</p>
+
+        <button
+        type="button"
+        class="btn btn-danger me-2"
+        (click)="modal.close('confirm')">
+        Sim
+        </button>
+
+        <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="modal.dismiss('cancel')">
+        Não
+        </button>
+    </div>
+    </ng-template>
 

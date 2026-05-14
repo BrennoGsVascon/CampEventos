@@ -1,13 +1,18 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {NavComponent} from "./nav/nav.component";
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NavComponent } from "./nav/nav.component";
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true ,
-  imports: [NavComponent, RouterOutlet],
+  imports: 
+  [NavComponent, 
+  RouterOutlet,
+  NgxSpinnerModule,
+],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

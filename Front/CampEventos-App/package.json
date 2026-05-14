@@ -11,6 +11,7 @@
   "private": true,
   "packageManager": "npm@11.12.1",
   "dependencies": {
+    "@angular/animations": "^21.2.12",
     "@angular/common": "^21.2.0",
     "@angular/compiler": "^21.2.0",
     "@angular/core": "^21.2.0",
@@ -21,6 +22,8 @@
     "@ng-bootstrap/ng-bootstrap": "^20.0.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8",
+    "ngx-spinner": "^21.1.0",
+    "ngx-toastr": "^20.0.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
