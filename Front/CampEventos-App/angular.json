@@ -30,7 +30,7 @@
                 "input": "public"
               }
             ],
-            "styles": [ "node_modules/ngx-spinner/animations/ball-scale-multiple.css", "src/styles.scss"],
+            "styles": [ "node_modules/bootswatch/dist/darkly/bootstrap.min.css", "node_modules/ngx-spinner/animations/ball-scale-multiple.css", "src/styles.scss"],
             "polyfills": ["@angular/localize/init"]
           },
           "configurations": {
