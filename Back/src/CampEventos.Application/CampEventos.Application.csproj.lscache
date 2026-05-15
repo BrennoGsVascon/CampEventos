@@ -52,7 +52,8 @@ TemporaryDependencyNodeTargetIdentifier=net5.0
 /warnaserror+:NU1605
 
 [sourceFiles]
-Class1.cs
+Contratos/IEventosService.cs
+EventoService.cs
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs
  CampEventos.Application.AssemblyInfo.cs

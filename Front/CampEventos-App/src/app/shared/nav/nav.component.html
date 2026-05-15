@@ -39,11 +39,11 @@
         <li class="nav-item">
           <a
             class="nav-link"
-            routerLink="/palestrantes"
+            routerLink="/apresentadores"
             routerLinkActive="active"
             (click)="closeNavbar()"
           >
-            Palestrantes
+            Apresentadores
           </a>
         </li>
 
@@ -68,10 +68,15 @@
 
         <div ngbDropdownMenu class="dorpdown-menu dropdown-menu-end"> 
 
-          <button ngbDropdownItem type="button">
-            Perfil
-          </button>
-
+        <button
+          ngbDropdownItem
+          type="button"
+          routerLink="/perfil"
+          routerLinkActive="active"
+          (click)="closeNavbar()">
+          Perfil
+        </button>
+          
           <div class="dropdown-divider"></div>
 
           <button ngbDropdownItem type="button" class="dropdown-item">

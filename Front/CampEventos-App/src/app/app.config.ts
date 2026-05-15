@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 
 import { provideToastr } from 'ngx-toastr';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { importProvidersFrom } from '@angular/core';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
@@ -15,7 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideHttpClient(),
-    provideAnimationsAsync(),
+    provideAnimations(),
     provideToastr({
       timeOut: 5000,
       positionClass: 'toast-bottom-right',
