@@ -30,7 +30,7 @@
                 "input": "public"
               }
             ],
-            "styles": [ "node_modules/ngx-spinner/animations/ball-scale-multiple.css", "src/styles.scss"],
+            "styles": [ "src/styles.scss"],
             "polyfills": ["@angular/localize/init"]
           },
           "configurations": {

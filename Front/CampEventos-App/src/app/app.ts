@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { NavComponent } from "./nav/nav.component";
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 
@@ -11,10 +11,10 @@ import { NavComponent } from "./nav/nav.component";
   imports: 
   [NavComponent, 
   RouterOutlet,
-  NgxSpinnerModule,
-],
+  ],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: ['./app.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class App {
   protected readonly title = signal('CampEventos-App');

@@ -8,26 +8,27 @@ import { Evento } from '../models/Evento';
 import { DateTimeFormatPipe } from '../helpers/DateTimeFormat.pipe';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { NgxSpinnerService, NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
   selector: 'app-eventos',
   standalone: true,
-  imports:
-    [CommonModule,
+  imports: [
+    CommonModule,
     FormsModule,
     DateTimeFormatPipe,
-    NgxSpinnerModule,
-
   ],
   templateUrl: './eventos.html',
-  styleUrl: './eventos.scss',
+  styleUrls: ['./eventos.scss'],
 })
 export class EventosComponent implements OnInit {
-
-  private modalService = inject(NgbModal);
+  private spinner = inject(NgxSpinnerService);
+  private eventoService = inject(EventoService);
   private toastr = inject(ToastrService);
+  private modalService = inject(NgbModal);
+  private cd = inject(ChangeDetectorRef);
+
   public eventoIdSelecionado?: number;
 
   public openModal(template: TemplateRef<any>, eventoId: number): void {
@@ -82,15 +83,16 @@ export class EventosComponent implements OnInit {
     );
   }
 
-  constructor(
-    private eventoService: EventoService,
-    private spinner: NgxSpinnerService,
-    private cd: ChangeDetectorRef,
-  ) { }
+  constructor() { }
 
   public ngOnInit(): void {
     this.spinner.show();
-    this.getEventos();
+
+  this.getEventos();
+
+  setTimeout(() => {
+    this.spinner.hide();
+  }, 2000);
 
   }
   
@@ -107,16 +109,14 @@ export class EventosComponent implements OnInit {
 
           this.eventos = eventosResp;
           this.eventosFiltrados = this.eventos;
-          
           this.cd.detectChanges();
-
         },
 
         error: (error: any) => {
           this.spinner.hide();
           this.toastr.error('Erro ao Carregar os Eventos', 'Erro!')
         },
-        complete:() => this.spinner.hide()  
+        //complete:() => this.spinner.hide()  
       });
   }
 }
