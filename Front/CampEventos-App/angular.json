@@ -30,15 +30,8 @@
                 "input": "public"
               }
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "styles": [ "src/styles.scss"],
-=======
+            
             "styles": [ "node_modules/bootswatch/dist/darkly/bootstrap.min.css", "node_modules/ngx-spinner/animations/ball-scale-multiple.css", "src/styles.scss"],
->>>>>>> 66fbf5618b63930cb6a9c5d4af0a393e838b4a76
-=======
-            "styles": [ "node_modules/bootswatch/dist/darkly/bootstrap.min.css", "node_modules/ngx-spinner/animations/ball-scale-multiple.css", "src/styles.scss"],
->>>>>>> 66fbf5618b63930cb6a9c5d4af0a393e838b4a76
             "polyfills": ["@angular/localize/init"]
           },
           "configurations": {
