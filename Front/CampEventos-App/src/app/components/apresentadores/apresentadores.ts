@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { TituloComponent } from '../../shared/titulo/titulo.component';
 
 
 @Component({
   selector: 'app-apresentadores',
   standalone: true,
-  imports: [],
+  imports: [TituloComponent],
   templateUrl: './apresentadores.html',
   styleUrl: './apresentadores.scss',
 })

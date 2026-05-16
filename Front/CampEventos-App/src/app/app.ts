@@ -1,21 +1,22 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavComponent } from "./nav/nav.component";
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NavComponent } from "./shared/nav/nav.component";
 
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @Component({
-  selector: 'app-root',
-  standalone: true ,
-  imports: 
-  [NavComponent, 
-  RouterOutlet,
-  ],
-  templateUrl: './app.html',
-  styleUrls: ['./app.scss'],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
-})
+    selector: 'app-root',
+    standalone: true ,
+    imports: [
+    NavComponent,
+    RouterOutlet,
+    NgxSpinnerModule,   
+],
+    templateUrl: './app.html',
+    styleUrls: ['./app.scss'],
+    
+  })
 export class App {
   protected readonly title = signal('CampEventos-App');
 }
