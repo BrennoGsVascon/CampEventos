@@ -1,3 +1,4 @@
+@if (showMenu()) {
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
 
@@ -6,7 +7,7 @@
       routerLink="/dashboard"
       (click)="closeNavbar()"
     >
-      Skate Eventos
+      <i class="fa fa-users mb-1"></i>
     </a>
 
     <button
@@ -28,7 +29,7 @@
         <li class="nav-item">
           <a
             class="nav-link"
-            routerLink="/eventos"
+            routerLink="/eventos/lista"
             routerLinkActive="active"
             (click)="closeNavbar()"
           >
@@ -71,7 +72,7 @@
         <button
           ngbDropdownItem
           type="button"
-          routerLink="/perfil"
+          routerLink="/user/perfil"
           routerLinkActive="active"
           (click)="closeNavbar()">
           Perfil
@@ -79,7 +80,7 @@
           
           <div class="dropdown-divider"></div>
 
-          <button ngbDropdownItem type="button" class="dropdown-item">
+          <button ngbDropdownItem type="button" class="dropdown-item" routerLink="/user/registration">
             Sair
           </button>
 
@@ -90,3 +91,4 @@
     </div>
   </div>
 </nav>
+}

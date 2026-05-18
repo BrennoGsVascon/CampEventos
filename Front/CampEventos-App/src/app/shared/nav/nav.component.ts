@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -10,6 +10,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './nav.component.scss'
 })
 export class NavComponent {
+  constructor(private router: Router) {}
 
   isCollapsed = true;
 
@@ -20,4 +21,10 @@ export class NavComponent {
   closeNavbar(): void {
     this.isCollapsed = true;
   }
+
+   showMenu(): boolean {
+    return !this.router.url.includes('/user/login')
+        && !this.router.url.includes('/user/registration');
 }
+  }
+
