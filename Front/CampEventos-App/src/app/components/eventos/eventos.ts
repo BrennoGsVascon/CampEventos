@@ -22,7 +22,7 @@ import { DateTimeFormatPipe } from '../../helpers/DateTimeFormat.pipe';
     TituloComponent
 ],
   templateUrl: './eventos.html',
-  styleUrls: ['./eventos.scss'],
+  styleUrls: ['./eventos.scss']
 })
 export class EventosComponent implements OnInit {
   

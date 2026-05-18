@@ -6,8 +6,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./titulo.component.scss']
 })
 export class TituloComponent implements OnInit {
-  @Input()
-  titulo!: string;
+  @Input() titulo!: string;
+  @Input() subtitulo = 'Desde 2020';
+  @Input() iconClass = 'bi bi-calendar2-check';
+  @Input() botaoListar = false;
   constructor() { }
 
   ngOnInit(): void {
