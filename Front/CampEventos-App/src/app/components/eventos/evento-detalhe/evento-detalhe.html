@@ -1,1 +1,239 @@
-<p>evento-detalhe works!</p>
+<div class="evento-form-page">
+  
+  <div class="evento-form-card shadow-lg p-3 mb-5 ">
+    
+    <div class="evento-form-header">
+      <div>
+        <span class="evento-badge">Comece por aqui</span>
+        <h3>Cadastre seu evento</h3>
+        <p>Crie eventos para campeonatos, sessões em pistas, GAME e encontros na praça.</p>
+      </div>
+      
+      <div class="evento-header-icon">
+        <i class="fa fa-calendar-plus"></i>
+      </div>
+    </div>
+    
+    <form [formGroup]="form">
+     
+      <div class="row">
+        <div class="col-md-12 mb-3">
+          <label class="form-label">Nome do Evento</label>
+          <input
+          type="text"
+          class="form-control"
+          [class.is-invalid]="f.tema.errors && f.tema.touched"
+          formControlName="tema"
+          placeholder="Ex: Sessão de Street na Praça Central"
+          />
+          
+          @if (f.tema.hasError('required') && f.tema.touched) {
+            <div class="invalid-feedback d-block">
+              Tema é obrigatório.
+              <i class="fa fa-exclamation-circle validation-icon"></i>
+            </div>
+          }
+          
+          @if (f.tema.hasError('minlength') && f.tema.touched) {
+            <div class="invalid-feedback d-block">
+              Tema deve ter no mínimo 4 caracteres.
+              <i class="fa fa-exclamation-circle validation-icon"></i>
+            </div>
+          }
+          
+          @if (f.tema.hasError('maxlength') && f.tema.touched) {
+            <div class="invalid-feedback d-block">
+              Tema deve ter no máximo 50 caracteres.
+              <i class="fa fa-exclamation-circle validation-icon"></i>
+            </div>
+          }
+
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-8 mb-3">
+          <label class="form-label">Local / Pista</label>
+          <input
+          type="text"
+          class="form-control"
+          [class.is-invalid]="f.local.errors && f.local.touched"
+          formControlName="local" 
+          placeholder="Ex: Praça XV,  Aterro do Flamengo,  DUO ..."
+          />
+          
+          @if(f.local.errors && f.local.touched) {
+            
+            <div class="invalid-feedback">
+              Local é obrigatório 
+              <i class="fa fa-exclamation-circle validation-icon"></i>
+            </div>
+            
+          }
+        </div>
+        
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Data e Hora</label>
+
+          
+          <input
+          type="datetime-local"
+          class="form-control "
+          [class.is-invalid]="f.dataEvento.errors && f.dataEvento.touched"
+          formControlName="dataEvento" 
+          placeholder=" Data e Hora"
+          />
+          
+          @if(f.dataEvento.errors && f.dataEvento.touched) {
+            
+            <div class="invalid-feedback">
+              Data e hora aproximada do evento é obrigatório 
+              <i class="fa fa-exclamation-circle validation-icon"></i>
+            </div>
+            
+          }
+          
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Vagas</label>
+
+          <input
+          type="number"
+          class="form-control"
+          [class.is-invalid]="f.qtdPessoas.errors && f.qtdPessoas.touched"
+          formControlName="qtdPessoas" 
+          placeholder="Ex: 120"
+          />
+
+          @if(f.qtdPessoas.hasError('required') && f.qtdPessoas.touched) {
+            
+            <div class="invalid-feedback d-block">
+              Vagas disponiveis para evento é obrigatório 
+              <i class="fa fa-exclamation-circle validation-icon"></i>
+            </div>
+            
+          }
+
+          @if (f.qtdPessoas.hasError('max') && f.qtdPessoas.touched) {
+            <div class="invalid-feedback d-block">
+              Atingiu limite de vagas, no máximo 10.000
+              <i class="fa fa-exclamation-circle validation-icon"></i>
+            </div>
+
+          }
+        </div>
+        
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Modalidade</label>
+          <select 
+          class="form-select" 
+          formControlName="modalidade"
+          [class.is-invalid]="f.modalidade.errors && f.modalidade.touched">
+          
+          <option value="">Selecione</option>
+          <option>Street</option>
+          <option>Bowl</option>
+          <option>Park</option>
+          <option>Mini Ramp</option>
+          <option>Best Trick</option>
+        </select>
+        
+        @if(f.modalidade.errors && f.modalidade.touched) {
+          
+          <div class="invalid-feedback">
+            Deve ser selecionado
+            <i class="fa fa-exclamation-circle validation-icon"></i>
+          </div>
+          
+        }
+      </div>
+      
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Telefone</label>
+        <input
+        type="text"
+        class="form-control"
+        formControlName="telefone"
+        [class.is-invalid]="f.telefone.errors && f.telefone.touched" 
+        placeholder="(00) 90000-0000"
+        />
+        
+        @if(f.telefone.errors && f.telefone.touched) {
+          
+          <div class="invalid-feedback">
+            Telefone é obrigatório 
+            <i class="fa fa-exclamation-circle validation-icon"></i>
+          </div>
+          
+        }
+        
+      </div>
+      
+      <div class="col-md-3 mb-3">
+        <label class="form-label">E-mail</label>
+        <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        [class.is-invalid]="f.email.errors && f.email.touched"
+        placeholder="contato@evento.com"
+        />
+        
+        @if(f.email.hasError('required') && f.email.touched) {
+            
+            <div class="invalid-feedback">
+              Email é obrigatório 
+                     
+            </div>
+        }
+
+        @if(f.email.hasError('email') && f.email.touched) {
+            
+          <div class="invalid-feedback">
+            Email esta incorreto 
+                     
+            </div>
+        }
+
+      </div>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Descrição do Evento</label>
+      <textarea
+      class="form-control"
+      rows="4"
+      formControlName="descricao"
+      [class.is-invalid]="f.descricao.errors && f.descricao.touched"
+      placeholder="Conte sobre premiação, categorias, regras do campeonato, horário de inscrição, atrações, DJs, food trucks."
+      ></textarea>
+      
+      @if(f.descricao.errors && f.descricao.touched) {
+        
+        <div class="invalid-feedback">
+          Preencha a descrição 
+          <i class="fa fa-exclamation-circle validation-icon"></i> 
+        </div>
+        
+      }
+    </div>
+    
+    <div class="evento-form-footer">
+      <button type="button" class="btn btn-cancel" (click)="resetForm()">
+        Cancelar
+      </button>
+      
+      <button type="submit" class="btn btn-save" [disabled]="!form.valid">
+        <i class="fa fa-save me-1"></i>
+        Salvar Evento
+      </button>
+    </div>
+    
+  </form>
+  
+</div>
+
+</div>

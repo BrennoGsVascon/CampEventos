@@ -1,0 +1,157 @@
+.evento-form-page {
+  padding: 2rem 0 4rem;
+}
+
+.evento-form-card {
+  background: #f8f9fa;
+  border-radius: 22px;
+  padding: 2rem;
+  color: #343a40;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.evento-form-header {
+  background:
+    linear-gradient(135deg, #343a40, #212529);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.evento-form-header h3 {
+  margin: 0.5rem 0;
+  font-weight: 700;
+}
+
+.evento-form-header p {
+  margin: 0;
+  color: #d6d6d6;
+}
+
+.evento-badge {
+  background: #00b894;
+  color: #ffffff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.evento-header-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.form-label {
+  color: #343a40;
+  font-weight: 600;
+}
+
+.form-control,
+.form-select {
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  color: #343a40;
+  padding: 0.7rem 0.9rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #00b894;
+  box-shadow: 0 0 0 0.2rem rgba(0, 184, 148, 0.18);
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+.evento-form-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-cancel {
+  border-radius: 10px;
+  border: 1px solid #6c757d;
+  color: #343a40;
+  background: rgb(255, 122, 122);
+  font-weight: 700;
+  padding: 0.7rem 1.2rem;
+}
+.btn-cancel:hover {
+    background-color: #df0303;
+}
+
+.btn-save {
+  border-radius: 10px;
+  border: none;
+  background: #4a70ee;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.7rem 1.2rem;
+}
+
+.btn-save:hover {
+  background-color: #023cf8;
+}
+
+@media (max-width: 576px) {
+  .evento-form-card {
+    padding: 1.25rem;
+  }
+
+  .evento-form-header {
+    align-items: flex-start;
+  }
+
+  .evento-header-icon {
+    display: none;
+  }
+
+  .evento-form-footer {
+    flex-direction: column-reverse;
+  }
+
+  .btn-cancel,
+  .btn-save {
+    width: 100%;
+  }
+}
+
+.custom-invalid-icon.is-invalid {
+  background-position: right 0.9rem center;
+  background-size: 16px 16px;
+  padding-right: 2.5rem;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 0;
+}
+
+input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input[type='datetime-local'].custom-invalid-icon.is-invalid {
+  background-position: right 0.9rem center;
+}
+
+input[type='datetime-local']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}

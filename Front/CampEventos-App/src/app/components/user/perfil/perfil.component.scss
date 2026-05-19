@@ -1,0 +1,129 @@
+.perfil-page {
+  min-height: calc(100vh - 72px);
+  padding: 3rem 1rem;
+  background:
+    radial-gradient(circle at top left, rgba(0, 184, 148, 0.12), transparent 30%),
+    linear-gradient(135deg, #1f1f1f, #2b2b2b, #151515);
+}
+
+.perfil-wrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.profile-card {
+  background: #f8f9fa;
+  border-radius: 22px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.profile-header {
+  height: 110px;
+  background:
+    linear-gradient(135deg, #343a40, #212529);
+}
+
+.profile-avatar {
+  width: 130px;
+  height: 130px;
+  margin: -65px auto 1rem;
+  border: 5px solid #f8f9fa;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.profile-username {
+  color: #343a40;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.profile-description {
+  color: #5c636a;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.profile-stats {
+  background: #ffffff;
+  border-top: 1px solid #dee2e6;
+}
+
+.profile-stats .stat-number {
+  color: #01f1c1;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.profile-stats .stat-label {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.profile-form-card {
+  background: #1a6ec210;
+  border-radius: 22px;
+  padding: 2rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.profile-form-card h3 {
+  color: #ffffff;
+  font-weight: 700;
+  border-bottom: 2px solid #fdffff;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-form-card label {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.profile-form-card .form-control,
+.profile-form-card .form-select {
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  color: #3a3f44;
+  padding: 0.7rem 0.9rem;
+}
+
+.profile-form-card .form-control:focus,
+.profile-form-card .form-select:focus {
+  border-color: #00b894;
+  box-shadow: 0 0 0 0.2rem rgba(0, 184, 148, 0.18);
+}
+
+.profile-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.btn-cancel {
+  border-radius: 10px;
+  border: none;
+  background: #f85e5e;
+  color: #000000d3;
+  font-weight: 700;
+  
+}
+.btn-cancel:hover {
+  background:#ff1313f1;
+}
+
+.btn-save {
+  border-radius: 10px;
+  border: none;
+  background: #ffffff;
+  color: #000000;
+  font-weight: 700;
+}
+
+.btn-save:hover {
+  background: #27a4ca;
+}

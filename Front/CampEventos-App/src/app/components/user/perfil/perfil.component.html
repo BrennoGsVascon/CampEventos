@@ -1,1 +1,349 @@
 <app-titulo [titulo]="'Perfil'"></app-titulo>
+
+<div class="perfil-page">
+  <div class="perfil-wrapper">
+
+    <form [formGroup]="form" class="row g-4 align-items-start">
+
+      <!-- CARD DO USUÁRIO -->
+      <div class="col-lg-3">
+
+        <div class="card profile-card">
+
+          <div class="profile-header"></div>
+
+          <div class="text-center">
+            <img
+              src="https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?q=80&w=400"
+              alt="Foto do usuário"
+              class="profile-avatar"
+            />
+          </div>
+
+          <div class="card-body text-center">
+
+            <div class="profile-username">
+              @SkaterName
+            </div>
+
+            <div class="profile-name">
+              <b>Nome:</b> Brenno Silva
+            </div>
+
+            <p class="profile-description">
+              Skatista participante de eventos, campeonatos e encontros em pistas públicas.
+              Apaixonado por street, bowl e cultura urbana.
+            </p>
+
+          </div>
+
+          <ul class="list-group list-group-flush profile-stats">
+
+            <li class="list-group-item">
+
+              <div class="row">
+
+                <div class="col-6 text-center border-end">
+                  <div class="stat-number">12</div>
+                  <div class="stat-label">
+                    Eventos<br />
+                    Participados
+                  </div>
+                </div>
+
+                <div class="col-6 text-center">
+                  <div class="stat-number">4</div>
+                  <div class="stat-label">
+                    Eventos<br />
+                    Criados
+                  </div>
+                </div>
+
+              </div>
+
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <!-- FORMULÁRIO -->
+      <div class="col-lg-9">
+
+        <div class="profile-form-card">
+
+          <h3>Detalhes do Perfil</h3>
+
+          <!-- LINHA 1 -->
+          <div class="row">
+
+            <!-- NÍVEL -->
+            <div class="col-md-3 mb-3">
+
+              <label class="form-label">Nível</label>
+
+              <select
+                class="form-select"
+                formControlName="nivel"
+                [class.is-invalid]="f.nivel.errors && f.nivel.touched">
+
+                <option value="">Selecione</option>
+                <option>Iniciante</option>
+                <option>Intermediário</option>
+                <option>Avançado</option>
+                <option>Profissional</option>
+
+              </select>
+
+              @if (f.nivel.hasError('required') && f.nivel.touched) {
+                <div class="invalid-feedback d-block">
+                  Nível é obrigatório.
+                </div>
+              }
+
+            </div>
+
+            <!-- PRIMEIRO NOME -->
+            <div class="col-md-4 mb-3">
+
+              <label class="form-label">Primeiro Nome</label>
+
+              <input
+                type="text"
+                class="form-control"
+                formControlName="primeiroNome"
+                [class.is-invalid]="f.primeiroNome.errors && f.primeiroNome.touched"
+                placeholder="Digite primeiro nome"
+              />
+
+              @if (f.primeiroNome.hasError('required') && f.primeiroNome.touched) {
+                <div class="invalid-feedback d-block">
+                  Primeiro nome é obrigatório.
+                </div>
+              }
+
+            </div>
+
+            <!-- ÚLTIMO NOME -->
+            <div class="col-md-5 mb-3">
+
+              <label class="form-label">Último Nome</label>
+
+              <input
+                type="text"
+                class="form-control"
+                formControlName="ultimoNome"
+                [class.is-invalid]="f.ultimoNome.errors && f.ultimoNome.touched"
+                placeholder="Digite ultimo nome"
+              />
+
+              @if (f.ultimoNome.hasError('required') && f.ultimoNome.touched) {
+                <div class="invalid-feedback d-block">
+                  Último nome é obrigatório.
+                </div>
+              }
+
+            </div>
+
+          </div>
+
+          <!-- LINHA 2 -->
+          <div class="row">
+
+            <!-- EMAIL -->
+            <div class="col-md-5 mb-3">
+
+              <label class="form-label">E-mail</label>
+
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                [class.is-invalid]="f.email.errors && f.email.touched"
+                placeholder="Digite seu email "
+              />
+
+              @if (f.email.hasError('required') && f.email.touched) {
+                <div class="invalid-feedback d-block">
+                  Email é obrigatório.
+                </div>
+              }
+
+              @if (f.email.hasError('email') && f.email.touched) {
+                <div class="invalid-feedback d-block">
+                  Email inválido.
+                </div>
+              }
+
+            </div>
+
+            <!-- TELEFONE -->
+            <div class="col-md-4 mb-3">
+
+              <label class="form-label">Telefone</label>
+
+              <input
+                type="text"
+                class="form-control"
+                formControlName="telefone"
+                [class.is-invalid]="f.telefone.errors && f.telefone.touched"
+                placeholder="Digite seu telefone"
+              />
+
+              @if (f.telefone.hasError('required') && f.telefone.touched) {
+                <div class="invalid-feedback d-block">
+                  Telefone é obrigatório.
+                </div>
+              }
+
+            </div>
+
+            <!-- FUNÇÃO -->
+            <div class="col-md-3 mb-3">
+
+              <label class="form-label">Função</label>
+
+              <select
+                class="form-select"
+                formControlName="funcao"
+                [class.is-invalid]="f.funcao.errors && f.funcao.touched">
+
+                <option value="">Selecione</option>
+                <option>Participante</option>
+                <option>Organizador</option>
+                <option>Atleta</option>
+                <option>Fotógrafo</option>
+                <option>Patrocinador</option>
+
+              </select>
+
+              @if (f.funcao.hasError('required') && f.funcao.touched) {
+                <div class="invalid-feedback d-block">
+                  Função é obrigatória.
+                </div>
+              }
+
+            </div>
+
+          </div>
+
+          <!-- DESCRIÇÃO -->
+          <div class="mb-3">
+
+            <label class="form-label">Descrição</label>
+
+            <textarea
+              rows="3"
+              class="form-control"
+              formControlName="descricao"
+              [class.is-invalid]="f.descricao.errors && f.descricao.touched"
+              placeholder="Ex: Curto campeonatos de street, bowl e eventos em praças públicas.">
+            </textarea>
+
+            @if (f.descricao.hasError('required') && f.descricao.touched) {
+              <div class="invalid-feedback d-block">
+                Descrição obrigatória.
+              </div>
+            }
+
+          </div>
+
+          <!-- SENHAS -->
+          <h3 class="mt-4">Alterar Senha</h3>
+
+          <p class="profile-help">
+            Para alterar sua senha, preencha os campos abaixo.
+          </p>
+
+          <div class="row">
+
+            <!-- SENHA -->
+            <div class="col-md-6 mb-3">
+
+              <label class="form-label">Senha</label>
+
+              <input
+                type="password"
+                class="form-control"
+                formControlName="senha"
+                [class.is-invalid]="f.senha.errors && f.senha.touched"
+                placeholder="Digite a nova senha"
+              />
+
+              @if (f.senha.hasError('required') && f.senha.touched) {
+                    <div class="invalid-feedback d-block">
+                      Senha é obrigatório
+                    </div>
+                  }
+
+              @if (f.senha.hasError('minlength') && f.senha.touched) {
+                <div class="invalid-feedback d-block">
+                  Senha deve ter no mínimo 6 caracteres.
+                </div>
+              }
+
+            </div>
+
+            <!-- CONFIRMAR SENHA -->
+            <div class="col-md-6 mb-3">
+
+              <label class="form-label">Confirmar Senha</label>
+
+              <input
+                type="password"
+                class="form-control"
+                formControlName="confirmarSenha"
+                [class.is-invalid]="f.confirmarSenha.errors && f.confirmarSenha.touched"
+                placeholder="Confirme a nova senha"
+                />
+
+              @if (f.confirmarSenha.hasError('required') && f.confirmarSenha.touched) {
+                  <div class="invalid-feedback d-block">
+                    Confirmar a senha é obrigatório
+                  </div>
+              }
+
+              @if (f.confirmarSenha.hasError('mustMatch') && f.confirmarSenha.touched) {
+                <div class="invalid-feedback d-block">
+                  As senhas devem ser iguais.
+                </div>
+              }
+
+            </div>
+
+          </div>
+
+          <!-- BOTÕES -->
+          <div class="profile-actions">
+
+            <button
+              type="button"
+              class="btn btn-cancel"
+              (click)="resetForm()">
+
+              Cancelar Alteração
+
+            </button>
+
+            <button
+              type="submit"
+              class="btn btn-save"
+              [disabled]="!form.valid">
+
+              <i class="fa fa-save me-1"></i>
+              Salvar Alteração
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>

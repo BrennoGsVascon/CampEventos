@@ -14,6 +14,7 @@
   overflow: hidden;
   max-width: 1050px;
   margin: 0 auto;
+  padding: 2rem;
 }
 
 .registration-hero {
@@ -26,6 +27,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  border-radius: 18px;
+  overflow: hidden;
 }
 
 .skate-icon {

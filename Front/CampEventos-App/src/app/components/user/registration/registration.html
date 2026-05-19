@@ -2,11 +2,11 @@
 
   <div class="container">
 
-    <div class="registration-card shadow-lg">
+    <div class="registration-card shadow-lg p-3">
 
       <div class="row g-0 align-items-center">
 
-        <div class="col-lg-5 d-none d-lg-flex">
+        <div class="col-lg-5 d-none d-lg-flex ">
           <div class="registration-hero">
             <div class="skate-icon">
               <i class="fa fa-person-skating"></i>
@@ -14,7 +14,7 @@
 
             <h1>Skate Eventos</h1>
             <p>
-              Crie agora sua conta! caso nao tenha para acompanhar eventos, campeonatos,
+              Crie agora sua conta para acompanhar eventos, campeonatos,
               pistas e encontros da comunidade skate.
             </p>
           </div>
@@ -26,7 +26,7 @@
             <h2 class="mb-2">Cadastro de Usuário</h2>
             <p class="subtitle mb-4">Preencha seus dados para criar sua conta.</p>
 
-            <form>
+            <form [formGroup]="form">
 
               <div class="row">
                 <div class="col-md-6 mb-3">
@@ -34,8 +34,19 @@
                   <input
                     type="text"
                     class="form-control"
+                    [class.is-invalid]="f.primeiroNome.errors && f.primeiroNome.touched"
+                    formControlName="primeiroNome"
                     placeholder="Insira o primeiro nome"
                   />
+
+                  @if(f.primeiroNome.errors && f.primeiroNome.touched) {
+            
+                  <div class="invalid-feedback" >
+                    Primeiro nome deve ser preenchido
+                  
+                  </div>
+                }
+
                 </div>
 
                 <div class="col-md-6 mb-3">
@@ -43,8 +54,19 @@
                   <input
                     type="text"
                     class="form-control"
+                    [class.is-invalid]="f.ultimoNome.errors && f.ultimoNome.touched"
+                    formControlName="ultimoNome"
                     placeholder="Insira o último nome"
                   />
+
+                  @if(f.ultimoNome.errors && f.ultimoNome.touched) {
+            
+                  <div class="invalid-feedback">
+                    Último nome deve ser preenchido
+                    
+                  </div>
+                }
+
                 </div>
               </div>
 
@@ -53,8 +75,27 @@
                 <input
                   type="email"
                   class="form-control"
+                  [class.is-invalid]="f.email.errors && f.email.touched"
+                  formControlName="email"
                   placeholder="Insira seu email"
                 />
+
+                @if(f.email.hasError('required') && f.email.touched) {
+            
+                  <div class="invalid-feedback">
+                    Email é obrigatório 
+                     
+                  </div>
+                }
+
+                @if(f.email.hasError('email') && f.email.touched) {
+            
+                  <div class="invalid-feedback">
+                    Email deve ser válido 
+                     
+                  </div>
+                }
+                
               </div>
 
               <div class="mb-3">
@@ -62,9 +103,19 @@
                 <input
                   type="text"
                   class="form-control"
+                  [class.is-invalid]="f.userName.errors && f.userName.touched"
+                  formControlName="userName"
                   placeholder="Insira o nome de usuário"
                 />
-              </div>
+                 @if(f.userName.errors && f.userName.touched) {
+            
+                  <div class="invalid-feedback">
+                    Nome de usuário obrigatório 
+                    
+                  </div>
+                }
+
+            </div>
 
               <div class="row">
                 <div class="col-md-6 mb-3">
@@ -72,8 +123,24 @@
                   <input
                     type="password"
                     class="form-control"
+                    [class.is-invalid]="f.senha.errors && f.senha.touched"
+                    formControlName="senha"
                     placeholder="Digite uma senha"
                   />
+
+                  @if (f.senha.hasError('required') && f.senha.touched) {
+                      <div class="invalid-feedback d-block">
+                        Senha é obrigatório.
+                        
+                      </div>
+                  }
+
+                  @if (f.senha.hasError('minlength') && f.senha.touched) {
+                      <div class="invalid-feedback d-block">
+                        Senha deve ter no mínimo 6 caracteres.
+                      </div>
+                  }
+
                 </div>
 
                 <div class="col-md-6 mb-3">
@@ -81,8 +148,23 @@
                   <input
                     type="password"
                     class="form-control"
+                    [class.is-invalid]="f.confirmeSenha.errors && f.confirmeSenha.touched"
+                    formControlName="confirmeSenha"
                     placeholder="Confirme a senha"
                   />
+
+                  @if (f.confirmeSenha.hasError('required') && f.confirmeSenha.touched) {
+                      <div class="invalid-feedback d-block">
+                      Confirmar a senha é obrigatório
+                      </div>
+                  }
+
+                   @if(f.confirmeSenha.hasError('mustMach') && f.confirmeSenha.touched) {
+            
+                    <div class="invalid-feedback">
+                      As senhas devem ser iguais 
+                    </div>
+                   }
                 </div>
               </div>
 
@@ -98,8 +180,8 @@
                   <a href="#">Termos de Uso</a>.
                 </label>
               </div>
-
-              <button type="submit" class="btn btn-register w-100 mb-3">
+              
+              <button type="button" class="btn btn-register w-100 mb-3" (click)="resetForm()">
                 Registrar
               </button>
 
@@ -110,6 +192,7 @@
             </form>
 
           </div>
+
         </div>
 
       </div>
