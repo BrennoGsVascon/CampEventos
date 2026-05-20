@@ -25,6 +25,12 @@ export class PerfilComponent implements OnInit {
     this.validation();
   }
 
+  onSubmit(): void {
+    if(this.form.invalid) {
+      return;
+    }
+  }
+
   public validation(): void {
 
     this.form = this.fb.group({
@@ -43,7 +49,8 @@ export class PerfilComponent implements OnInit {
     });
   }
 
-  public resetForm(): void {
+  public resetForm(event: any): void {
+    event.preventDefault();
     this.form.reset();
   }
 }

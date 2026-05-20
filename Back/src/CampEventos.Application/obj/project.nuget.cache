@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CDqOUSsNSVthbCiTx3VKnHerIy73oJubPNKiMWsIpNO1lQuUnPZ7ChSl0wq1zF+xXa93rlMNXED572da2zQvBw==",
+  "dgSpecHash": "IfAU1O27BIZSs/uPVaPIAAfZhOyO8PqINvjAnKleIbEXIluxga5f0pigHiLZLoPy0MUfK7PVsg9vl84jvO9Rxw==",
   "success": true,
   "projectFilePath": "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Application\\CampEventos.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\br4nn\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\br4nn\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\br4nn\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\br4nn\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\br4nn\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.2\\microsoft.entityframeworkcore.5.0.2.nupkg.sha512",
@@ -23,7 +25,8 @@
     "C:\\Users\\br4nn\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\br4nn\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\br4nn\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
-    "C:\\Users\\br4nn\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512"
+    "C:\\Users\\br4nn\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
+    "C:\\Users\\br4nn\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

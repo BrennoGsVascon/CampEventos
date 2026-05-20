@@ -53,7 +53,13 @@ TemporaryDependencyNodeTargetIdentifier=net5.0
 
 [sourceFiles]
 Contratos/IEventosService.cs
+Dtos/
+ ApresentadorDto.cs
+ EventoDto.cs
+ LoteDto.cs
+ RedeSocialDto.cs
 EventoService.cs
+Helpers/CampEventosProfile.cs
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs
  CampEventos.Application.AssemblyInfo.cs
@@ -215,6 +221,8 @@ obj/Debug/net5.0/
  System.Xml.XPath.XDocument.dll
  WindowsBase.dll
 <NUGET>/
+ automapper.extensions.microsoft.dependencyinjection/8.1.1/lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+ automapper/10.1.1/lib/netstandard2.0/AutoMapper.dll
  humanizer.core/2.8.26/lib/netstandard2.0/Humanizer.dll
  microsoft.entityframeworkcore.abstractions/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll
  microsoft.entityframeworkcore.design/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.dll

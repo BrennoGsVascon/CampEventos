@@ -132,3 +132,5 @@ C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEven
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

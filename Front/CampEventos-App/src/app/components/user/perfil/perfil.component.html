@@ -3,7 +3,7 @@
 <div class="perfil-page">
   <div class="perfil-wrapper">
 
-    <form [formGroup]="form" class="row g-4 align-items-start">
+    <form [formGroup]="form" class="row g-4 align-items-start" (ngSubmit)="onSubmit()">
 
       <!-- CARD DO USUÁRIO -->
       <div class="col-lg-3">
@@ -321,7 +321,7 @@
             <button
               type="button"
               class="btn btn-cancel"
-              (click)="resetForm()">
+              (click)="resetForm($event)">
 
               Cancelar Alteração
 
