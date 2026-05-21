@@ -1,3 +1,6 @@
+import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+
 import { ApplicationConfig, LOCALE_ID, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
@@ -9,8 +12,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { routes } from './app.routes';
 
+defineLocale('pt-br', ptBrLocale);
+
 export const appConfig: ApplicationConfig = {
   providers: [
+    BsLocaleService,
     importProvidersFrom(NgxSpinnerModule.forRoot()),
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),

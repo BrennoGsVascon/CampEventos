@@ -13,6 +13,8 @@ export interface Evento{
     imagemURL : string;
     telefone : string;
     email : string;
+    descricao: string;
+    modalidade: string;
     lotes : Lote[];
     redesSociais  : RedeSocial[];
     apresentadoresEventos : Apresentador[];

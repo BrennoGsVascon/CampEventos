@@ -63,6 +63,8 @@ GeralPersist.cs
 Migrations/
  20260512110034_Inittial.cs
  20260512110034_Inittial.Designer.cs
+ 20260520180948_AddDescricaoModalidadeEvento.cs
+ 20260520180948_AddDescricaoModalidadeEvento.Designer.cs
  CampEventosContextModelSnapshot.cs
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs

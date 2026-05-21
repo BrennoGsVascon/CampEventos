@@ -12,7 +12,7 @@ namespace CampEventos.API.helpers
     {
         public CampEventosProfile()
         {
-            CreateMap<Evento, EventoDto>();
+            CreateMap<Evento, EventoDto>().ReverseMap();
         }
     }
 }

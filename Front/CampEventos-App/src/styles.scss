@@ -1,3 +1,141 @@
 /* You can add global styles to this file, and also import other style files */
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 @import 'ngx-toastr/toastr';
+
+/* =========================
+   NGX BOOTSTRAP DATEPICKER
+========================= */
+
+bs-datepicker-container {
+  z-index: 9999 !important;
+}
+
+.bs-datepicker {
+  width: 340px !important;
+  min-width: 340px !important;
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35) !important;
+  overflow: hidden !important;
+}
+
+.bs-datepicker-container {
+  padding: 0 !important;
+}
+
+.bs-datepicker-head {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  padding: 0 18px !important;
+}
+
+.bs-datepicker-head button {
+  min-width: 48px !important;
+  height: 38px !important;
+  border: none !important;
+  border-radius: 10px !important;
+  color: #0f172a !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+}
+
+.bs-datepicker-head button.current {
+  flex: 1 !important;
+  min-width: 90px !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  background: rgba(255, 255, 255, 0.32) !important;
+}
+
+.bs-datepicker-body {
+  background: #f8fafc !important;
+  border: none !important;
+  padding: 16px !important;
+}
+
+.bs-datepicker-body table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 6px 8px !important;
+}
+
+.bs-datepicker-body table th {
+  color: #334155 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  padding-bottom: 8px !important;
+}
+
+.bs-datepicker-body table td {
+  text-align: center !important;
+  padding: 0 !important;
+}
+
+.bs-datepicker-body table td span {
+  width: 34px !important;
+  height: 34px !important;
+  line-height: 34px !important;
+  display: inline-block !important;
+  color: #1e293b !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border-radius: 50% !important;
+  transition: 0.2s ease-in-out !important;
+}
+
+.bs-datepicker-body table td span:hover {
+  background: #ccfbf1 !important;
+  color: #0f766e !important;
+}
+
+.bs-datepicker-body table td.selected span,
+.bs-datepicker-body table td span.selected {
+  background: #14b8a6 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(20, 184, 166, 0.45) !important;
+}
+
+.bs-datepicker-body table td.today span {
+  border: 2px solid #14b8a6 !important;
+  color: #0f766e !important;
+}
+
+.bs-datepicker-body table td.is-other-month span,
+.bs-datepicker-body table td.disabled span {
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+}
+/* Dias do mês atual */
+.bs-datepicker-body table td span {
+  color: #0f172a !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+/* Dias fora do mês atual: abril/junho quando estiver em maio, por exemplo */
+.bs-datepicker-body table td.is-other-month span,
+.bs-datepicker-body table td span.is-other-month,
+.bs-datepicker-body table td:not(.selected).is-other-month span {
+  color: #cbd5e1 !important;
+  opacity: 1 !important;
+  font-weight: 500 !important;
+}
+
+/* Dias fora do mês atual ao passar o mouse */
+.bs-datepicker-body table td.is-other-month span:hover,
+.bs-datepicker-body table td span.is-other-month:hover {
+  color: #94a3b8 !important;
+  background-color: #f1f5f9 !important;
+}
+
+/* Mantém o dia selecionado forte */
+.bs-datepicker-body table td.selected span,
+.bs-datepicker-body table td span.selected {
+  background-color: #14b8a6 !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}

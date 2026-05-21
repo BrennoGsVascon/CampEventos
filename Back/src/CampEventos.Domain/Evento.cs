@@ -15,6 +15,8 @@ namespace CampEventos.Domain
         public string ImagemURL { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
+        public string Descricao { get; set; }
+        public string Modalidade { get; set; }
         public IEnumerable<Lote> Lotes { get; set; }
         public IEnumerable<RedeSocial> RedesSociais  { get; set; }
         public IEnumerable<ApresentadorEvento> ApresentadoresEventos { get; set; }

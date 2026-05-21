@@ -116,8 +116,8 @@ namespace CampEventos.API.Controllers
             if (evento == null) return NoContent();
 
             return await _eventoService.DeleteEvento(id) ? 
-                    Ok("Deletado") : 
-                    throw new Exception("Ocorreu um problema não específico ao tentar deletar Evento.");
+                    Ok(new {message = "Deletado"}) 
+                    : throw new Exception("Ocorreu um problema não específico ao tentar deletar Evento.");
         }
         catch (Exception ex)
         {

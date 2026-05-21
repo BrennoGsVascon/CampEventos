@@ -56,13 +56,13 @@
 
 .form-label {
   color: #343a40;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .form-control,
 .form-select {
   border-radius: 10px;
-  border: 1px solid #ced4da;
+  border: 1px solid #29a2f3;
   color: #343a40;
   padding: 0.7rem 0.9rem;
 }
@@ -132,26 +132,3 @@ textarea.form-control {
   }
 }
 
-.custom-invalid-icon.is-invalid {
-  background-position: right 0.9rem center;
-  background-size: 16px 16px;
-  padding-right: 2.5rem;
-}
-
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  opacity: 0;
-}
-
-input[type='number'] {
-  appearance: textfield;
-  -moz-appearance: textfield;
-}
-
-input[type='datetime-local'].custom-invalid-icon.is-invalid {
-  background-position: right 0.9rem center;
-}
-
-input[type='datetime-local']::-webkit-calendar-picker-indicator {
-  opacity: 0;
-}

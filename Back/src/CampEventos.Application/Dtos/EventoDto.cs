@@ -21,8 +21,8 @@ namespace CampEventos.Application.Dtos
         [Range(1, 10000, ErrorMessage ="{0} não pode ser menor que 1 e maior que 10.000")]
         public int QtdPessoas { get; set; }
 
-        [RegularExpression(@".*\.(gif|jpe?g|bmp|png)$",
-        ErrorMessage ="{0} Não é uma imagem válida. (gif, jpg, jpeg, bmp ou png)")]
+        [RegularExpression(@".*\.(gif|jpe?g|bmp|png|webp|avif)$",
+            ErrorMessage ="{0} Não é uma imagem válida. (gif, jpg, jpeg, bmp, png, webp ou avif)")]
         public string ImagemURL { get; set; }
 
         [Required(ErrorMessage ="O campo {0} deve ser preenchido.")]
@@ -33,6 +33,15 @@ namespace CampEventos.Application.Dtos
         [Display(Name = "e-email")]
         [EmailAddress(ErrorMessage ="O {0} deve ser válido.")]
         public string Email { get; set; }
+
+        [Display(Name ="Descrição")]
+        [Required(ErrorMessage = "O campo {0} deve ser preenchido."),
+        StringLength(500, MinimumLength = 10, 
+                          ErrorMessage = "A {0} deve ter entre 10 e 500 caracteres.")]
+        public string Descricao { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
+        public string Modalidade { get; set; }
 
         public IEnumerable<LoteDto> Lotes { get; set; }
         public IEnumerable<RedeSocialDto> RedesSociais  { get; set; }
