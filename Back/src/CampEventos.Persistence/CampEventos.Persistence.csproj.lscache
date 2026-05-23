@@ -58,13 +58,17 @@ Contratos/
  IApresentadorPersist.cs
  IEventoPersist.cs
  IGeralPersist.cs
+ ILotePersist.cs
 EventoPersist.cs
 GeralPersist.cs
+LotePersist.cs
 Migrations/
  20260512110034_Inittial.cs
  20260512110034_Inittial.Designer.cs
  20260520180948_AddDescricaoModalidadeEvento.cs
  20260520180948_AddDescricaoModalidadeEvento.Designer.cs
+ 20260522142318_AjustaPrecoLote.cs
+ 20260522142318_AjustaPrecoLote.Designer.cs
  CampEventosContextModelSnapshot.cs
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs

@@ -113,7 +113,7 @@ namespace CampEventos.Persistence.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Preço")
+                    b.Property<decimal>("Preco")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Quantidade")

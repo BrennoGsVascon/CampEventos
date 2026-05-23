@@ -2,7 +2,7 @@ export interface Lote {
 
         id : number;
         nome : string;
-        preço : number;
+        preco : number;
         dataInicio : string; 
         dataFim : string;
         quantidade : number;

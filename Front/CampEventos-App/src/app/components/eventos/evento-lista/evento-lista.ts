@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { Evento } from '../../../models/Evento';
 import { EventoService } from '../../../services/evento.service';
 import { DateTimeFormatPipe } from '../../../helpers/DateTimeFormat.pipe';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { API_CONFIG } from '../../../core/config/api.config';
 
 
 
@@ -75,6 +76,14 @@ export class EventoListaComponent implements OnInit {
     this.exibirImagem = !this.exibirImagem;
   }
   
+  public getImagemEvento(imagemURL?: string): string {
+    if (!imagemURL || imagemURL.trim() === '') {
+      return 'assets/img/semImagem.jpeg';
+    }
+    
+    return `${API_CONFIG.imageUrl}/${imagemURL}`;
+  }
+  
   public detalheEvento(id: number): void {
     this.router.navigate([`/eventos/detalhe/${id}`]);
   }
@@ -136,9 +145,9 @@ export class EventoListaComponent implements OnInit {
     
     this.eventoService.deleteEvento(this.eventoIdSelecionado).subscribe({
       next: (result: any) => {
-          console.log(result);
-          this.toastr.success('O evento foi deletado com sucesso.', 'Deletado!');
-          this.carregarEventos();
+        console.log(result);
+        this.toastr.success('O evento foi deletado com sucesso.', 'Deletado!');
+        this.carregarEventos();
         
       },
       error: (error: any) => {

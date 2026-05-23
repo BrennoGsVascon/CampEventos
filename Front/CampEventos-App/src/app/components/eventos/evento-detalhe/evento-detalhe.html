@@ -1,6 +1,6 @@
 <div class="evento-form-page">
   
-  <div class="evento-form-card shadow-lg p-3 mb-5 ">
+  <div class="evento-form-card shadow-lg p-3 mb-5">
     
     <div class="evento-form-header">
       <div>
@@ -14,90 +14,110 @@
       </div>
     </div>
     
-    <form [formGroup]="form" (ngSubmit)="salvarAlteracao()">
+    <form [formGroup]="form" (ngSubmit)="salvarEvento()">
       
-      <div class="row">
-        <div class="col-md-12 mb-3">
-          <label class="form-label">Nome do Evento</label>
-          <input
-          type="text"
-          class="form-control"
-          [ngClass]="cssValidator('tema')"
-          formControlName="tema"
-          placeholder="Ex: Sessão de Street na Praça Central"
-          />
+      <div class="row g-4">
+        
+        <div [class]="modoEditar ? 'col-lg-8' : 'col-lg-12'">
           
-          @if (f.tema.hasError('required') && f.tema.touched) {
-            <div class="invalid-feedback d-block">
-              Tema é obrigatório.
-              <i class="fa fa-exclamation-circle validation-icon"></i>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label class="form-label">Nome do Evento</label>
+              
+              <input
+              type="text"
+              class="form-control"
+              [ngClass]="cssValidator('tema')"
+              formControlName="tema"
+              placeholder="Ex: Sessão de Street na Praça Central"
+              />
+              
+              @if (f.tema.hasError('required') && f.tema.touched) {
+                <div class="invalid-feedback d-block">
+                  Tema é obrigatório.
+                  <i class="fa fa-exclamation-circle validation-icon"></i>
+                </div>
+              }
+              
+              @if (f.tema.hasError('minlength') && f.tema.touched) {
+                <div class="invalid-feedback d-block">
+                  Tema deve ter no mínimo 4 caracteres.
+                  <i class="fa fa-exclamation-circle validation-icon"></i>
+                </div>
+              }
+              
+              @if (f.tema.hasError('maxlength') && f.tema.touched) {
+                <div class="invalid-feedback d-block">
+                  Tema deve ter no máximo 50 caracteres.
+                  <i class="fa fa-exclamation-circle validation-icon"></i>
+                </div>
+              }
             </div>
-          }
+          </div>
           
-          @if (f.tema.hasError('minlength') && f.tema.touched) {
-            <div class="invalid-feedback d-block">
-              Tema deve ter no mínimo 4 caracteres.
-              <i class="fa fa-exclamation-circle validation-icon"></i>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label class="form-label">Local / Pista</label>
+              
+              <input
+              type="text"
+              class="form-control"
+              [ngClass]="cssValidator('local')"
+              formControlName="local"
+              placeholder="Ex: Praça XV, Aterro do Flamengo..."
+              />
+              
+              @if (f.local.errors && f.local.touched) {
+                <div class="invalid-feedback d-block">
+                  Local é obrigatório
+                  <i class="fa fa-exclamation-circle validation-icon"></i>
+                </div>
+              }
             </div>
-          }
-          
-          @if (f.tema.hasError('maxlength') && f.tema.touched) {
-            <div class="invalid-feedback d-block">
-              Tema deve ter no máximo 50 caracteres.
-              <i class="fa fa-exclamation-circle validation-icon"></i>
-            </div>
-          }
+          </div>
           
         </div>
+        
+        @if (modoEditar) {
+          <div class="col-lg-4">
+            
+            <div class="evento-image-card">
+              <div class="evento-image-top">
+                <span class="evento-badge">Imagem</span>
+                <i class="fa fa-camera-retro"></i>
+              </div>
+              
+              <div class="evento-image-preview">
+                <img
+                [src]="imagemPreview"
+                alt="Imagem do evento"
+                />
+              </div>
+              
+              <label class="btn btn-image-upload">
+                <i class="fa fa-upload me-1"></i>
+                Trocar imagem
+                
+                <input
+                type="file"
+                hidden
+                accept="image/png, image/jpeg, image/webp"
+                (change)="onFileChange($event)"
+                />
+              </label>
+              
+              <input type="hidden" formControlName="imagemURL" />
+              
+              <small class="text-muted d-block mt-2">
+                Use uma imagem da pista, campeonato ou flyer do evento.
+              </small>
+            </div>
+            
+          </div>
+        }
+        
       </div>
       
-      <!-- LOCAL E IMAGEM -->
-      <div class="row">
-        
-        <div class="col-md-8 mb-3">
-          <label class="form-label">Local / Pista</label>
-          
-          <input
-          type="text"
-          class="form-control"
-          [ngClass]="cssValidator('local')"
-          formControlName="local"
-          placeholder="Ex: Praça XV, Aterro do Flamengo..."
-          />
-          
-          @if(f.local.errors && f.local.touched) {
-            <div class="invalid-feedback d-block">
-              Local é obrigatório
-              <i class="fa fa-exclamation-circle validation-icon"></i>
-            </div>
-          }
-          
-        </div>
-        
-        <div class="col-md-4 mb-3">
-          <label class="form-label">Imagem</label>
-          
-          <input
-          type="text"
-          class="form-control"
-          formControlName="imagemURL"
-          [ngClass]="cssValidator('imagemURL')"
-          placeholder="Ex: foto1.webp"
-          />
-          
-          @if(f.imagemURL.hasError('required') && f.imagemURL.touched) {
-            <div class="invalid-feedback d-block">
-              Imagem é obrigatória.
-              <i class="fa fa-exclamation-circle validation-icon"></i>
-            </div>
-          }
-          
-        </div>
-        
-      </div>
-      
-      
-      <!-- DATA E EMAIL -->
       <div class="row">
         
         <div class="col-md-6 mb-3">
@@ -113,13 +133,12 @@
           placeholder="Ex: 19/03/1998 12:00"
           />
           
-          @if(f.dataEvento.hasError('required') && f.dataEvento.touched) {
+          @if (f.dataEvento.hasError('required') && f.dataEvento.touched) {
             <div class="invalid-feedback d-block">
               Data e hora são obrigatórias.
               <i class="fa fa-exclamation-circle validation-icon"></i>
             </div>
           }
-          
         </div>
         
         <div class="col-md-6 mb-3">
@@ -133,26 +152,23 @@
           placeholder="contato@evento.com"
           />
           
-          @if(f.email.hasError('required') && f.email.touched) {
+          @if (f.email.hasError('required') && f.email.touched) {
             <div class="invalid-feedback d-block">
               Email é obrigatório
               <i class="fa fa-exclamation-circle validation-icon"></i>
             </div>
           }
           
-          @if(f.email.hasError('email') && f.email.touched) {
+          @if (f.email.hasError('email') && f.email.touched) {
             <div class="invalid-feedback d-block">
               Email está incorreto
               <i class="fa fa-exclamation-circle validation-icon"></i>
             </div>
           }
-          
         </div>
         
       </div>
       
-      
-      <!-- VAGAS MODALIDADE TELEFONE -->
       <div class="row">
         
         <div class="col-md-3 mb-3">
@@ -166,15 +182,19 @@
           placeholder="Ex: 120"
           />
           
-          @if(f.qtdPessoas.hasError('required') && f.qtdPessoas.touched) {
+          @if (f.qtdPessoas.hasError('required') && f.qtdPessoas.touched) {
             <div class="invalid-feedback d-block">
               Vagas obrigatórias
               <i class="fa fa-exclamation-circle validation-icon"></i>
             </div>
           }
-          
+          @if (f.qtdPessoas.hasError('max') && f.qtdPessoas.touched) {
+            <div class="invalid-feedback d-block">
+              Maximo de 10.000 vagas 
+              <i class="fa fa-exclamation-circle validation-icon"></i>
+            </div>
+          }
         </div>
-        
         
         <div class="col-md-3 mb-3">
           <label class="form-label">Modalidade</label>
@@ -182,19 +202,16 @@
           <select
           class="form-select"
           formControlName="modalidade"
-          [ngClass]="cssValidator('modalidade')">
-          
+          [ngClass]="cssValidator('modalidade')"
+          >
           <option value="">Selecione</option>
           <option>Street</option>
           <option>Bowl</option>
           <option>Park</option>
           <option>Mini Ramp</option>
           <option>Best Trick</option>
-          
         </select>
-        
       </div>
-      
       
       <div class="col-md-6 mb-3">
         <label class="form-label">Telefone</label>
@@ -206,13 +223,13 @@
         [ngClass]="cssValidator('telefone')"
         placeholder="(00) 90000-0000"
         />
-        
       </div>
       
     </div>
     
     <div class="mb-3">
       <label class="form-label">Descrição do Evento</label>
+      
       <textarea
       class="form-control"
       rows="4"
@@ -221,13 +238,11 @@
       placeholder="Conte sobre premiação, categorias, regras do campeonato, horário de inscrição, atrações, DJs, food trucks."
       ></textarea>
       
-      @if(f.descricao.errors && f.descricao.touched) {
-        
+      @if (f.descricao.errors && f.descricao.touched) {
         <div class="invalid-feedback">
-          Preencha a descrição 
-          <i class="fa fa-exclamation-circle validation-icon"></i> 
+          Preencha a descrição
+          <i class="fa fa-exclamation-circle validation-icon"></i>
         </div>
-        
       }
     </div>
     
@@ -242,8 +257,143 @@
       </button>
     </div>
     
+  </form>
+</div>
+
+@if (modoEditar && lotesCarregados) {
+  
+  <div class="lotes-card shadow-lg" [formGroup]="form">
     
-  </form>  
-</div> 
+    <div class="lotes-header">
+      <div>
+        <span class="evento-badge">Lotes</span>
+        <h3>Lotes do Evento</h3>
+        <p>Clique em Lote para adicionar e preencher novos lotes deste evento.</p>
+      </div>
+      
+      <div class="lotes-header-icon">
+        <i class="fa fa-money-bill-wave"></i>
+      </div>
+    </div>
+    
+    <div formArrayName="lotes">
+      
+      @for (lote of lotes.controls; track $index; let i = $index) {
+        
+        <div class="lote-item" [formGroupName]="i">
+          
+          <div class="row">
+            
+            <div class="col-md-4 mb-3">
+              <label class="form-label">Nome</label>
+              <input
+              type="text"
+              class="form-control"
+              formControlName="nome"
+              placeholder="Ex: 1º Lote"
+              />
+            </div>
+            
+            <div class="col-md-4 mb-3">
+              <label class="form-label">Quantidade</label>
+              <input
+              type="number"
+              class="form-control"
+              formControlName="quantidade"
+              placeholder="Ex: 100"
+              />
+            </div>
+            
+            <div class="col-md-4 mb-3">
+              <label class="form-label">Preço</label>
+              <input
+              type="number"
+              step="0.01"
+              class="form-control"
+              formControlName="preco"
+              placeholder="Ex: 50.00"
+              />
+            </div>
+            
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Data Início</label>
+              <input
+              type="date"
+              class="form-control"
+              formControlName="dataInicio"
+              />
+            </div>
+            
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Data Fim</label>
+              <input
+              type="date"
+              class="form-control"
+              formControlName="dataFim"
+              />
+            </div>
+            
+          </div>
+          
+          <div class="lote-actions">
+            <button
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            (click)="removerLote(template, i)"
+            >
+            <i class="fa fa-window-close me-1"></i>
+            Excluir Lote
+          </button>
+        </div>
+        
+      </div>
+    }
+    
+  </div>
+  
+  <div class="lotes-actions">
+    <button
+    type="button"
+    class="btn btn-outline-primary"
+    (click)="adicionarLote()"
+    >
+    <i class="fa fa-plus-circle me-1"></i>
+    Adicionar Lote
+  </button>
+</div>
 
+<div class="lotes-footer">
+  <button type="button" class="btn btn-cancel">
+    Cancelar
+  </button>
+  
+  <button type="button" class="btn btn-save" (click)="salvarLotes()">
+    <i class="fa fa-save me-1"></i>
+    Salvar Lotes
+  </button>
+</div>
 
+</div>
+}
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Tem certeza que quer excluir o Lote {{ loteAtual.nome }}?</p>
+    
+    <button
+    type="button"
+    class="btn btn-danger me-2"
+    (click)="confirmDeleteLote()"
+    >
+    Sim
+  </button>
+  
+  <button
+  type="button"
+  class="btn btn-secondary"
+  (click)="declineDeleteLote()"
+  >
+  Não
+</button>
+</div>
+</ng-template>
