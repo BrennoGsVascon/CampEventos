@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Persistence\\CampEventos.Persistence.csproj": {}
+    "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Persistence\\CampEventos.Persistence.csproj": {}
   },
   "projects": {
-    "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj": {
+    "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj",
         "projectName": "CampEventos.Domain",
-        "projectPath": "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj",
-        "packagesPath": "C:\\Users\\br4nn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Domain\\obj\\",
+        "projectPath": "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj",
+        "packagesPath": "C:\\Users\\e.brenno.silva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\br4nn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\e.brenno.silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,13 +39,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "10.0.200"
+        }
       },
       "frameworks": {
         "net5.0": {
@@ -61,8 +56,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -71,24 +65,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Persistence\\CampEventos.Persistence.csproj": {
+    "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Persistence\\CampEventos.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Persistence\\CampEventos.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Persistence\\CampEventos.Persistence.csproj",
         "projectName": "CampEventos.Persistence",
-        "projectPath": "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Persistence\\CampEventos.Persistence.csproj",
-        "packagesPath": "C:\\Users\\br4nn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Persistence\\obj\\",
+        "projectPath": "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Persistence\\CampEventos.Persistence.csproj",
+        "packagesPath": "C:\\Users\\e.brenno.silva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\br4nn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\e.brenno.silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -97,14 +91,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj": {
-                "projectPath": "C:\\Users\\br4nn\\OneDrive\\Documentos\\OneDriveC\\OneDrive\\Área de Trabalho\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj"
+              "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj": {
+                "projectPath": "C:\\Users\\e.brenno.silva\\Desktop\\CampEventos\\Back\\src\\CampEventos.Domain\\CampEventos.Domain.csproj"
               }
             }
           }
@@ -113,13 +108,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "10.0.200"
+        }
       },
       "frameworks": {
         "net5.0": {
@@ -144,8 +133,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -154,7 +142,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

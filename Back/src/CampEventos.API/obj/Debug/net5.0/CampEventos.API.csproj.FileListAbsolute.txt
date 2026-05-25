@@ -139,3 +139,17 @@ C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEven
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
