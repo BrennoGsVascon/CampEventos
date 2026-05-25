@@ -46,7 +46,7 @@ namespace CampEventos.Persistence
             }
 
                     query = query.AsNoTracking().OrderBy(ap =>ap.Id)
-                                 .Where(ap => ap.Nome.ToLower().Contains(nome.ToLower()));
+                                 .Where(ap => ap.User.PrimeiroNome.ToLower().Contains(nome.ToLower()));
 
                     return await query.ToArrayAsync();
         }

@@ -59,6 +59,7 @@ Contratos/
  IEventoPersist.cs
  IGeralPersist.cs
  ILotePersist.cs
+ IUserPersist.cs
 EventoPersist.cs
 GeralPersist.cs
 LotePersist.cs
@@ -69,10 +70,13 @@ Migrations/
  20260520180948_AddDescricaoModalidadeEvento.Designer.cs
  20260522142318_AjustaPrecoLote.cs
  20260522142318_AjustaPrecoLote.Designer.cs
+ 20260523083616_Adicionando-Identity.cs
+ 20260523083616_Adicionando-Identity.Designer.cs
  CampEventosContextModelSnapshot.cs
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs
  CampEventos.Persistence.AssemblyInfo.cs
+UserPersist.cs
 
 [metadataReferences]
 ../CampEventos.Domain/obj/Debug/net5.0/ref/CampEventos.Domain.dll
@@ -230,6 +234,9 @@ obj/Debug/net5.0/
  WindowsBase.dll
 <NUGET>/
  humanizer.core/2.8.26/lib/netstandard2.0/Humanizer.dll
+ microsoft.aspnetcore.cryptography.internal/5.0.2/lib/net5.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+ microsoft.aspnetcore.cryptography.keyderivation/5.0.2/lib/net5.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+ microsoft.aspnetcore.identity.entityframeworkcore/5.0.2/lib/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
  microsoft.entityframeworkcore.abstractions/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll
  microsoft.entityframeworkcore.design/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.dll
  microsoft.entityframeworkcore.relational/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll
@@ -239,6 +246,8 @@ obj/Debug/net5.0/
  microsoft.extensions.configuration.abstractions/5.0.0/lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll
  microsoft.extensions.dependencyinjection.abstractions/5.0.0/lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
  microsoft.extensions.dependencyinjection/5.0.1/lib/net5.0/Microsoft.Extensions.DependencyInjection.dll
+ microsoft.extensions.identity.core/5.0.2/lib/net5.0/Microsoft.Extensions.Identity.Core.dll
+ microsoft.extensions.identity.stores/5.0.2/lib/net5.0/Microsoft.Extensions.Identity.Stores.dll
  microsoft.extensions.logging.abstractions/5.0.0/lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll
  microsoft.extensions.logging/5.0.0/lib/netstandard2.1/Microsoft.Extensions.Logging.dll
  microsoft.extensions.options/5.0.0/lib/net5.0/Microsoft.Extensions.Options.dll

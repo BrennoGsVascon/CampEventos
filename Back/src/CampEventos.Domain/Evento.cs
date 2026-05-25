@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CampEventos.Domain.Identity;
 
 namespace CampEventos.Domain
 {
@@ -17,6 +18,8 @@ namespace CampEventos.Domain
         public string Email { get; set; }
         public string Descricao { get; set; }
         public string Modalidade { get; set; }
+        public int UserId {get; set;}
+        public User USer { get; set; }
         public IEnumerable<Lote> Lotes { get; set; }
         public IEnumerable<RedeSocial> RedesSociais  { get; set; }
         public IEnumerable<ApresentadorEvento> ApresentadoresEventos { get; set; }

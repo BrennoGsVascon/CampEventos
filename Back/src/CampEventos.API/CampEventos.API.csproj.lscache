@@ -84,8 +84,6 @@ Startup.cs
  Microsoft.AspNetCore.Connections.Abstractions.dll
  Microsoft.AspNetCore.CookiePolicy.dll
  Microsoft.AspNetCore.Cors.dll
- Microsoft.AspNetCore.Cryptography.Internal.dll
- Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
  Microsoft.AspNetCore.DataProtection.Abstractions.dll
  Microsoft.AspNetCore.DataProtection.dll
  Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -169,8 +167,6 @@ Startup.cs
  Microsoft.Extensions.Hosting.Abstractions.dll
  Microsoft.Extensions.Hosting.dll
  Microsoft.Extensions.Http.dll
- Microsoft.Extensions.Identity.Core.dll
- Microsoft.Extensions.Identity.Stores.dll
  Microsoft.Extensions.Localization.Abstractions.dll
  Microsoft.Extensions.Localization.dll
  Microsoft.Extensions.Logging.Abstractions.dll
@@ -354,6 +350,9 @@ Startup.cs
  automapper.extensions.microsoft.dependencyinjection/8.1.1/lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
  automapper/10.1.1/lib/netstandard2.0/AutoMapper.dll
  humanizer.core/2.8.26/lib/netstandard2.0/Humanizer.dll
+ microsoft.aspnetcore.cryptography.internal/5.0.2/lib/net5.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+ microsoft.aspnetcore.cryptography.keyderivation/5.0.2/lib/net5.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+ microsoft.aspnetcore.identity.entityframeworkcore/5.0.2/lib/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
  microsoft.aspnetcore.jsonpatch/5.0.3/lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll
  microsoft.aspnetcore.mvc.newtonsoftjson/5.0.3/lib/net5.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
  microsoft.data.sqlite.core/5.0.2/lib/netstandard2.0/Microsoft.Data.Sqlite.dll
@@ -365,6 +364,8 @@ Startup.cs
  microsoft.entityframeworkcore/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.dll
  microsoft.extensions.dependencyinjection/5.0.1/lib/net5.0/Microsoft.Extensions.DependencyInjection.dll
  microsoft.extensions.dependencymodel/5.0.0/lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll
+ microsoft.extensions.identity.core/5.0.2/lib/net5.0/Microsoft.Extensions.Identity.Core.dll
+ microsoft.extensions.identity.stores/5.0.2/lib/net5.0/Microsoft.Extensions.Identity.Stores.dll
  microsoft.openapi/1.2.3/lib/netstandard2.0/Microsoft.OpenApi.dll
  newtonsoft.json.bson/1.0.2/lib/netstandard2.0/Newtonsoft.Json.Bson.dll
  newtonsoft.json/12.0.2/lib/netstandard2.0/Newtonsoft.Json.dll

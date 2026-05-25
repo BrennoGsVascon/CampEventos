@@ -22,22 +22,15 @@ namespace CampEventos.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ImagemURL")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("MiniCurriculo")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nome")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Telefone")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Apresentadores");
                 });
@@ -90,9 +83,144 @@ namespace CampEventos.Persistence.Migrations
                     b.Property<string>("Tema")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Eventos");
+                });
+
+            modelBuilder.Entity("CampEventos.Domain.Identity.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex");
+
+                    b.ToTable("AspNetRoles");
+                });
+
+            modelBuilder.Entity("CampEventos.Domain.Identity.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Descricao")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Funcao")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ImagemURL")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Nivel")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("PrimeiroNome")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UltimoNome")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex");
+
+                    b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("CampEventos.Domain.Identity.UserRole", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("UserId1")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("AspNetUserRoles");
                 });
 
             modelBuilder.Entity("CampEventos.Domain.Lote", b =>
@@ -153,6 +281,101 @@ namespace CampEventos.Persistence.Migrations
                     b.ToTable("RedesSociais");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("CampEventos.Domain.Apresentador", b =>
+                {
+                    b.HasOne("CampEventos.Domain.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("CampEventos.Domain.ApresentadorEvento", b =>
                 {
                     b.HasOne("CampEventos.Domain.Apresentador", "Apresentador")
@@ -170,6 +393,40 @@ namespace CampEventos.Persistence.Migrations
                     b.Navigation("Apresentador");
 
                     b.Navigation("Evento");
+                });
+
+            modelBuilder.Entity("CampEventos.Domain.Evento", b =>
+                {
+                    b.HasOne("CampEventos.Domain.Identity.User", "USer")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("USer");
+                });
+
+            modelBuilder.Entity("CampEventos.Domain.Identity.UserRole", b =>
+                {
+                    b.HasOne("CampEventos.Domain.Identity.Role", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CampEventos.Domain.Identity.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CampEventos.Domain.Identity.User", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId1");
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CampEventos.Domain.Lote", b =>
@@ -200,6 +457,42 @@ namespace CampEventos.Persistence.Migrations
                     b.Navigation("Evento");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.HasOne("CampEventos.Domain.Identity.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.HasOne("CampEventos.Domain.Identity.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.HasOne("CampEventos.Domain.Identity.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.HasOne("CampEventos.Domain.Identity.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("CampEventos.Domain.Apresentador", b =>
                 {
                     b.Navigation("ApresentadoresEventos");
@@ -214,6 +507,16 @@ namespace CampEventos.Persistence.Migrations
                     b.Navigation("Lotes");
 
                     b.Navigation("RedesSociais");
+                });
+
+            modelBuilder.Entity("CampEventos.Domain.Identity.Role", b =>
+                {
+                    b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("CampEventos.Domain.Identity.User", b =>
+                {
+                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }

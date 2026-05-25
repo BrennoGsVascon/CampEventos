@@ -1,14 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace CampEventos.Domain.Enum
 {
-    public class Funcao
+    public enum Funcao
     {
         NaoInformado,
         Participante,
-        Apresentador
+        Organizador,
+        Atleta,
+        Fotografo,
+        Patrocinador,
     }
 }
