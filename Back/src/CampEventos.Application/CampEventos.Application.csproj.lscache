@@ -52,20 +52,27 @@ TemporaryDependencyNodeTargetIdentifier=net5.0
 /warnaserror+:NU1605
 
 [sourceFiles]
+AccountService.cs
 Contratos/
+ IAccountService.cs
  IEventoService.cs
  ILoteService.cs
+ ITokenService.cs
 Dtos/
  ApresentadorDto.cs
  EventoDto.cs
  LoteDto.cs
  RedeSocialDto.cs
+ UserDto.cs
+ UserLoginDto.cs
+ UserUpdateDto.cs
 EventoService.cs
 Helpers/CampEventosProfile.cs
 LoteService.cs
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs
  CampEventos.Application.AssemblyInfo.cs
+TokenService.cs
 
 [metadataReferences]
 ../
@@ -227,9 +234,23 @@ obj/Debug/net5.0/
  automapper.extensions.microsoft.dependencyinjection/8.1.1/lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
  automapper/10.1.1/lib/netstandard2.0/AutoMapper.dll
  humanizer.core/2.8.26/lib/netstandard2.0/Humanizer.dll
+ microsoft.aspnetcore.authentication.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Abstractions.dll
+ microsoft.aspnetcore.authentication.cookies/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Cookies.dll
+ microsoft.aspnetcore.authentication.core/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Core.dll
+ microsoft.aspnetcore.authentication/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Authentication.dll
  microsoft.aspnetcore.cryptography.internal/5.0.2/lib/net5.0/Microsoft.AspNetCore.Cryptography.Internal.dll
  microsoft.aspnetcore.cryptography.keyderivation/5.0.2/lib/net5.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+ microsoft.aspnetcore.dataprotection.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.DataProtection.Abstractions.dll
+ microsoft.aspnetcore.dataprotection/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.DataProtection.dll
+ microsoft.aspnetcore.hosting.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Hosting.Abstractions.dll
+ microsoft.aspnetcore.hosting.server.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+ microsoft.aspnetcore.http.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll
+ microsoft.aspnetcore.http.extensions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Http.Extensions.dll
+ microsoft.aspnetcore.http.features/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll
+ microsoft.aspnetcore.http/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Http.dll
  microsoft.aspnetcore.identity.entityframeworkcore/5.0.2/lib/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+ microsoft.aspnetcore.identity/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Identity.dll
+ microsoft.aspnetcore.webutilities/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll
  microsoft.entityframeworkcore.abstractions/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll
  microsoft.entityframeworkcore.design/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.dll
  microsoft.entityframeworkcore.relational/5.0.2/lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll
@@ -239,13 +260,28 @@ obj/Debug/net5.0/
  microsoft.extensions.configuration.abstractions/5.0.0/lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll
  microsoft.extensions.dependencyinjection.abstractions/5.0.0/lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
  microsoft.extensions.dependencyinjection/5.0.1/lib/net5.0/Microsoft.Extensions.DependencyInjection.dll
+ microsoft.extensions.fileproviders.abstractions/2.2.0/lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll
+ microsoft.extensions.hosting.abstractions/2.2.0/lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.dll
  microsoft.extensions.identity.core/5.0.2/lib/net5.0/Microsoft.Extensions.Identity.Core.dll
  microsoft.extensions.identity.stores/5.0.2/lib/net5.0/Microsoft.Extensions.Identity.Stores.dll
  microsoft.extensions.logging.abstractions/5.0.0/lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll
  microsoft.extensions.logging/5.0.0/lib/netstandard2.1/Microsoft.Extensions.Logging.dll
+ microsoft.extensions.objectpool/2.2.0/lib/netstandard2.0/Microsoft.Extensions.ObjectPool.dll
  microsoft.extensions.options/5.0.0/lib/net5.0/Microsoft.Extensions.Options.dll
  microsoft.extensions.primitives/5.0.0/lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll
+ microsoft.extensions.webencoders/2.2.0/lib/netstandard2.0/Microsoft.Extensions.WebEncoders.dll
+ microsoft.identitymodel.jsonwebtokens/6.14.0/lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll
+ microsoft.identitymodel.logging/6.14.0/lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll
+ microsoft.identitymodel.tokens/6.14.0/lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll
+ microsoft.net.http.headers/2.2.0/lib/netstandard2.0/Microsoft.Net.Http.Headers.dll
+ microsoft.win32.registry/4.5.0/ref/netstandard2.0/Microsoft.Win32.Registry.dll
  system.diagnostics.diagnosticsource/5.0.1/lib/net5.0/System.Diagnostics.DiagnosticSource.dll
+ system.identitymodel.tokens.jwt/6.14.0/lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll
+ system.security.accesscontrol/4.5.0/ref/netstandard2.0/System.Security.AccessControl.dll
+ system.security.cryptography.cng/4.5.0/ref/netcoreapp2.1/System.Security.Cryptography.Cng.dll
+ system.security.cryptography.xml/4.5.0/ref/netstandard2.0/System.Security.Cryptography.Xml.dll
+ system.security.permissions/4.5.0/ref/netstandard2.0/System.Security.Permissions.dll
+ system.security.principal.windows/4.5.0/ref/netstandard2.0/System.Security.Principal.Windows.dll
 
 [analyzerReferences]
 <DOTNET>/sdk/10.0.203/Sdks/Microsoft.NET.Sdk/analyzers/

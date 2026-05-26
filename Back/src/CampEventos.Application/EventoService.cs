@@ -23,16 +23,17 @@ namespace CampEventos.Application
             _eventoPersist = eventoPersist;
             this.mapper = mapper;
         }
-        public async Task<EventoDto> AddEventos(EventoDto model)
+        public async Task<EventoDto> AddEventos(int userId, EventoDto model)
         {
             try
             {
                 var evento = mapper.Map<Evento>(model);
+                evento.UserId = userId;
 
                 _geralPersist.Add<Evento>(evento);
                 if(await _geralPersist.SaveChangesAsync())
                 {
-                    var eventoRetorno = await _eventoPersist.GetEventoByIdAsync(evento.Id, false);
+                    var eventoRetorno = await _eventoPersist.GetEventoByIdAsync(userId, evento.Id, false);
                     return mapper.Map<EventoDto>(eventoRetorno);
                 }
                 return null;
@@ -42,14 +43,15 @@ namespace CampEventos.Application
                 throw new Exception(ex.Message);
             }
         }
-        public async Task<EventoDto> UpdateEvento(int eventoId, EventoDto model)
+        public async Task<EventoDto> UpdateEvento(int userId, int eventoId, EventoDto model)
         {
             try
             {
-                var evento = await _eventoPersist.GetEventoByIdAsync(eventoId, false);
+                var evento = await _eventoPersist.GetEventoByIdAsync(userId, eventoId, false);
                 if (evento == null) return null;
 
                 model.Id = evento.Id;
+                model.UserId = userId;
 
                 mapper.Map(model, evento);
 
@@ -57,7 +59,7 @@ namespace CampEventos.Application
 
                 if(await _geralPersist.SaveChangesAsync())
                 {
-                    var eventoRetorno = await _eventoPersist.GetEventoByIdAsync(evento.Id, false);
+                    var eventoRetorno = await _eventoPersist.GetEventoByIdAsync(userId, evento.Id, false);
                     return mapper.Map<EventoDto>(eventoRetorno);
                 }
                 return null;
@@ -69,11 +71,11 @@ namespace CampEventos.Application
             }
         }
 
-        public async Task<bool> DeleteEvento(int eventoId)
+        public async Task<bool> DeleteEvento(int userId, int eventoId)
         {
             try
             {
-                var evento = await _eventoPersist.GetEventoByIdAsync(eventoId, false);
+                var evento = await _eventoPersist.GetEventoByIdAsync(userId, eventoId, false);
                 if (evento == null) throw new Exception("Evento para delete não foi encontrado.");
 
                 _geralPersist.Delete<Evento>(evento);
@@ -86,11 +88,11 @@ namespace CampEventos.Application
             }
         }
 
-        public async Task<EventoDto[]> GetAllEventosAsync(bool includeApresentadores = false)
+        public async Task<EventoDto[]> GetAllEventosAsync(int userId, bool includeApresentadores = false)
         {
             try
             {
-                var eventos = await _eventoPersist.GetAllEventosAsync(includeApresentadores);
+                var eventos = await _eventoPersist.GetAllEventosAsync(userId, includeApresentadores);
                 if (eventos == null) return null;
 
                 var resultado = mapper.Map<EventoDto[]>(eventos);
@@ -106,11 +108,11 @@ namespace CampEventos.Application
             }
         }
 
-        public async Task<EventoDto[]> GetAllEventosByTemaAsync(string tema, bool includeApresentadores = false)
+        public async Task<EventoDto[]> GetAllEventosByTemaAsync(int userId, string tema, bool includeApresentadores = false)
         {
             try
             {
-                var eventos = await _eventoPersist.GetAllEventosByTemaAsync(tema, includeApresentadores);
+                var eventos = await _eventoPersist.GetAllEventosByTemaAsync(userId, tema, includeApresentadores);
                 if (eventos == null) return null;
 
                 var resultado = mapper.Map<EventoDto[]>(eventos);
@@ -126,11 +128,11 @@ namespace CampEventos.Application
             }
         }
 
-        public async Task<EventoDto> GetEventoByIdAsync(int eventoId, bool includeApresentadores = false)
+        public async Task<EventoDto> GetEventoByIdAsync(int userId, int eventoId, bool includeApresentadores = false)
         {
             try
             {
-                var evento = await _eventoPersist.GetEventoByIdAsync(eventoId, includeApresentadores);
+                var evento = await _eventoPersist.GetEventoByIdAsync(userId, eventoId, includeApresentadores);
                 if (evento == null) return null;
 
                 var resultado = mapper.Map<EventoDto>(evento);
@@ -145,7 +147,5 @@ namespace CampEventos.Application
                 throw new Exception(ex.Message);
             }
         }
-
-        
     }
 }

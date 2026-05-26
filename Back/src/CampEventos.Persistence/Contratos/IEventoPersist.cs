@@ -5,8 +5,8 @@ namespace CampEventos.Persistence.Contratos
 {
     public interface IEventoPersist
     {
-        Task<Evento[]> GetAllEventosByTemaAsync (string tema, bool includeApresentadores = false);
-        Task<Evento[]> GetAllEventosAsync (bool includeApresentadores = false);
-        Task<Evento> GetEventoByIdAsync (int eventoId, bool includeApresentadores = false);
+        Task<Evento[]> GetAllEventosByTemaAsync (int userId, string tema, bool includeApresentadores = false);
+        Task<Evento[]> GetAllEventosAsync (int userId, bool includeApresentadores = false);
+        Task<Evento> GetEventoByIdAsync (int userId, int eventoId, bool includeApresentadores = false);
     }
 }

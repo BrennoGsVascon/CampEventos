@@ -18,7 +18,7 @@ namespace CampEventos.Persistence
             _context = context;
             //_context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
-        public async Task<Evento[]> GetAllEventosAsync(bool includeApresentadores = false)
+        public async Task<Evento[]> GetAllEventosAsync(int userId, bool includeApresentadores = false)
         {
             IQueryable<Evento> query = _context.Eventos
                     .Include(e => e.Lotes)
@@ -31,12 +31,14 @@ namespace CampEventos.Persistence
                     .ThenInclude(ape => ape.Apresentador);
             }
 
-                    query = query.AsNoTracking().OrderBy(e =>e.Id);
+                    query = query.AsNoTracking()
+                                 .Where(e => e.UserId == userId)
+                                 .OrderBy(e =>e.Id);
 
                     return await query.ToArrayAsync();
         }           
 
-        public async Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includeEventos)
+        public async Task<Evento[]> GetAllEventosByTemaAsync(int userId, string tema, bool includeEventos)
         {
             IQueryable<Evento> query = _context.Eventos
                     .Include(e => e.Lotes)
@@ -50,13 +52,13 @@ namespace CampEventos.Persistence
             }
 
                     query = query.AsNoTracking().OrderBy(e =>e.Id)
-                                 .Where(e => e.Tema.ToLower()
-                                 .Contains(tema.ToLower()));
+                                 .Where(e => e.Tema.ToLower().Contains(tema.ToLower()) && 
+                                 e.UserId == userId);
 
                     return await query.ToArrayAsync();
             
         }
-        public async Task<Evento> GetEventoByIdAsync(int eventoId, bool includeApresentadores)
+        public async Task<Evento> GetEventoByIdAsync(int userId, int eventoId, bool includeApresentadores)
         {
             IQueryable<Evento> query = _context.Eventos
                     .Include(e => e.Lotes)
@@ -70,7 +72,7 @@ namespace CampEventos.Persistence
             }
 
                     query = query.AsNoTracking().OrderBy(e =>e.Id)
-                                 .Where(e => e.Id == eventoId);
+                                 .Where(e => e.Id == eventoId && e.UserId == userId);
 
                     return await query.FirstOrDefaultAsync();
         }

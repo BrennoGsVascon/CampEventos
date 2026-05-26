@@ -9,20 +9,28 @@ using Microsoft.AspNetCore.Hosting;
 using System.Linq;
 using System.Data;
 using System.Reflection;
+using CampEventos.API.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CampEventos.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class EventosController : ControllerBase
     {
         private readonly IEventoService _eventoService;
         private readonly IWebHostEnvironment _hostEnvironment;
+        private readonly IAccountService _accountService;
 
-        public EventosController(IEventoService eventoService, IWebHostEnvironment hostEnvironment)
+        public EventosController(IEventoService eventoService, 
+                                 IWebHostEnvironment hostEnvironment,
+                                 IAccountService accountService)
         {
             _eventoService = eventoService;
             _hostEnvironment = hostEnvironment;
+            _accountService = accountService;
+            
         }
 
         [HttpGet]
@@ -30,7 +38,7 @@ namespace CampEventos.API.Controllers
     {
         try
         {
-            var eventos = await _eventoService.GetAllEventosAsync(true);
+            var eventos = await _eventoService.GetAllEventosAsync(User.GetUserId(), true);
             if (eventos == null) return NoContent();
         
             return Ok(eventos);
@@ -45,11 +53,12 @@ namespace CampEventos.API.Controllers
     }
 
     [HttpGet("{id}")]
+    
     public async Task<IActionResult> GetById(int id)
     {
         try
         {
-            var evento = await _eventoService.GetEventoByIdAsync(id, true);
+            var evento = await _eventoService.GetEventoByIdAsync(User.GetUserId(), id, true);
             if (evento == null) return NoContent();
         
             return Ok(evento);
@@ -66,7 +75,7 @@ namespace CampEventos.API.Controllers
     {
         try
         {
-            var evento = await _eventoService.GetAllEventosByTemaAsync(tema, true);
+            var evento = await _eventoService.GetAllEventosByTemaAsync(User.GetUserId(), tema, true);
             if (evento == null) return NotFound("Eventos por tema não encontrado.");
         
             return Ok(evento);
@@ -79,12 +88,37 @@ namespace CampEventos.API.Controllers
         }
     }
 
+        [HttpPost("upload-image/{eventoId}")]
+        public async Task<IActionResult> UploadImage(int eventoId)
+        {
+        try
+        {
+            var evento = await _eventoService.GetEventoByIdAsync(User.GetUserId(), eventoId, true);
+            if (evento == null) return NoContent();
+
+            var file = Request.Form.Files[0];
+            if(file.Length > 0)
+                {
+                    DeleteImage(evento.ImagemURL);
+                    evento.ImagemURL = await SaveImage(file);
+                }
+                var EventoRetorno = await _eventoService.UpdateEvento(User.GetUserId(), eventoId, evento);
+        
+            return Ok(EventoRetorno);
+        }
+        catch (Exception ex)
+        {
+            
+           return this.StatusCode(StatusCodes.Status500InternalServerError,
+           $"Erro ao tentar adicionar eventos. Erro: {ex.Message}");
+        }
+        }
         [HttpPost]
         public async Task<IActionResult> Post(EventoDto model)
         {
         try
         {
-            var evento = await _eventoService.AddEventos(model);
+            var evento = await _eventoService.AddEventos(User.GetUserId(), model);
             if (evento == null) return NoContent();
         
             return Ok(evento);
@@ -97,38 +131,13 @@ namespace CampEventos.API.Controllers
         }
         }
 
-        [HttpPost("upload-image/{eventoId}")]
-        public async Task<IActionResult> UploadImage(int eventoId)
-        {
-        try
-        {
-            var evento = await _eventoService.GetEventoByIdAsync(eventoId, true);
-            if (evento == null) return NoContent();
-
-            var file = Request.Form.Files[0];
-            if(file.Length > 0)
-                {
-                    DeleteImage(evento.ImagemURL);
-                    evento.ImagemURL = await SaveImage(file);
-                }
-                var EventoRetorno = await _eventoService.UpdateEvento(eventoId, evento);
-        
-            return Ok(EventoRetorno);
-        }
-        catch (Exception ex)
-        {
-            
-           return this.StatusCode(StatusCodes.Status500InternalServerError,
-           $"Erro ao tentar adicionar eventos. Erro: {ex.Message}");
-        }
-        }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, EventoDto model)
         {    
         try
         {
-            var evento = await _eventoService.UpdateEvento(id, model);
+            var evento = await _eventoService.UpdateEvento(User.GetUserId(), id, model);
             if (evento == null) return NoContent();
         
             return Ok(evento);
@@ -146,10 +155,10 @@ namespace CampEventos.API.Controllers
         {
         try
         {
-            var evento = await _eventoService.GetEventoByIdAsync(id, true);
+            var evento = await _eventoService.GetEventoByIdAsync(User.GetUserId(), id, true);
             if (evento == null) return NoContent();
 
-            if(await _eventoService.DeleteEvento(id))
+            if(await _eventoService.DeleteEvento(User.GetUserId(), id))
                 {
                     DeleteImage(evento.ImagemURL);
                     return Ok(new {message = "Deletado"});

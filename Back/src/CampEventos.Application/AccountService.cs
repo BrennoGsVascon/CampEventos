@@ -34,7 +34,7 @@ namespace CampEventos.Application
         {
             try
             {
-                return await _userManager.Users.AnyAsync(user => user.UserName == userName.ToLower());
+                return await _userManager.FindByNameAsync(userName) != null;
             }
             catch (System.Exception ex)
             {
@@ -46,9 +46,7 @@ namespace CampEventos.Application
         {
             try
             {
-                return await _userManager.Users
-                    .SingleOrDefaultAsync(user =>
-                        user.UserName == userName.ToLower());
+                return await _userManager.FindByNameAsync(userName);
             }
             catch (Exception ex)
             {
@@ -60,7 +58,8 @@ namespace CampEventos.Application
         {
             try
             {
-                var user = await _userPersist.GetUserByUserNameAsync(userName);
+                var user = await  _userManager.FindByNameAsync(userName);
+                
                 if (user == null) return null;
 
                 return _mapper.Map<UserUpdateDto>(user);

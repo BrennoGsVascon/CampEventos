@@ -153,3 +153,10 @@ C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\n
 C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

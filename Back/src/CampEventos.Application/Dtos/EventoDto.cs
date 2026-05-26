@@ -42,7 +42,8 @@ namespace CampEventos.Application.Dtos
 
         [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
         public string Modalidade { get; set; }
-
+        public int UserId { get; set; }
+        public UserDto UserDto { get; set; }
         public IEnumerable<LoteDto> Lotes { get; set; }
         public IEnumerable<RedeSocialDto> RedesSociais  { get; set; }
         public IEnumerable<ApresentadorDto> Apresentadores { get; set; }
