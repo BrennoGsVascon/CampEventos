@@ -3,6 +3,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 import { TituloComponent } from '../../../shared/titulo/titulo.component';
 import { ValidatorFild } from '../../../helpers/ValidatorFild';
+import { AccountService } from '../../../services/account.service';
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { UserUpdate } from '../../../models/identity/UserUpdate';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -12,17 +17,27 @@ import { ValidatorFild } from '../../../helpers/ValidatorFild';
   styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent implements OnInit {
-
+  userUpdate = {} as UserUpdate;
    form!: FormGroup;
 
   get f(): any {
     return this.form.controls;
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,
+              public accountService: AccountService,
+              private router: Router,
+              private toaster: ToastrService,
+              private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {
     this.validation();
+    this.carregarUsuario();
+  }
+
+  private carregarUsuario(): void {
+    this.accountService.getUser()
   }
 
   onSubmit(): void {

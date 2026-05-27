@@ -1,15 +1,3 @@
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\bin\Debug\net5.0\CampEventos.Domain.deps.json
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\bin\Debug\net5.0\CampEventos.Domain.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\bin\Debug\net5.0\ref\CampEventos.Domain.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\bin\Debug\net5.0\CampEventos.Domain.pdb
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.csprojAssemblyReference.cache
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.AssemblyInfoInputs.cache
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.AssemblyInfo.cs
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.csproj.CoreCompileInputs.cache
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\ref\CampEventos.Domain.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.pdb
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Domain\bin\Debug\net5.0\CampEventos.Domain.deps.json
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Domain\bin\Debug\net5.0\CampEventos.Domain.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Domain\bin\Debug\net5.0\ref\CampEventos.Domain.dll
@@ -22,3 +10,15 @@ C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEven
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\ref\CampEventos.Domain.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.pdb
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\bin\Debug\net5.0\CampEventos.Domain.deps.json
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\bin\Debug\net5.0\CampEventos.Domain.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\bin\Debug\net5.0\ref\CampEventos.Domain.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\bin\Debug\net5.0\CampEventos.Domain.pdb
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.csprojAssemblyReference.cache
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.AssemblyInfoInputs.cache
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.AssemblyInfo.cs
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.csproj.CoreCompileInputs.cache
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\ref\CampEventos.Domain.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.Domain\obj\Debug\net5.0\CampEventos.Domain.pdb

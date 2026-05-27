@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { CommonModule, formatDate } from '@angular/common';
+import { ChangeDetectorRef, Component, OnInit, TemplateRef } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -38,7 +38,7 @@ export class EventoDetalheComponent implements OnInit {
   
   bsConfig = {
     adaptivePosition: true,
-    dateInputFormat: 'DD/MM/YYYY hh:mm',
+    dateInputFormat: 'DD/MM/YYYY HH:mm',
     containerClass: 'theme-default',
     showWeekNumbers: false
   };
@@ -53,6 +53,7 @@ export class EventoDetalheComponent implements OnInit {
     private router: Router,
     private loteService: LoteService,
     private modalService: BsModalService,
+    private cd: ChangeDetectorRef,
   )
   
   {
@@ -99,7 +100,7 @@ export class EventoDetalheComponent implements OnInit {
       
       tema : ['', [Validators.required,Validators.minLength(4),Validators.maxLength(50),]],
       local : ['', Validators.required],
-      dataEvento: ['', Validators.required],
+      dataEvento: [null, Validators.required],
       qtdPessoas : ['', [Validators.required,Validators.max(10000),]],
       modalidade : ['', Validators.required],
       telefone : ['', Validators.required],
@@ -119,7 +120,13 @@ export class EventoDetalheComponent implements OnInit {
         
         const { lotes: _lotes, redesSociais: _redesSociais, apresentadoresEventos: _apresentadoresEventos, apresentadores: _apresentadores, ...eventoSemColecoes } = evento as any;
         
-        this.form.patchValue(eventoSemColecoes);
+        this.form.patchValue({
+          ...eventoSemColecoes,
+          dataEvento: this.converterDataEventoParaFormulario(eventoSemColecoes.dataEvento)
+        });
+
+        this.cd.detectChanges();
+
         this.imagemPreview = this.evento.imagemURL
         ? `${API_CONFIG.imageUrl}/${this.evento.imagemURL}`
         : 'assets/img/semImagem.jpeg';
@@ -144,11 +151,13 @@ export class EventoDetalheComponent implements OnInit {
         });
         
         this.lotesCarregados = true;
+        this.cd.detectChanges();
       },
       error: (error: any) => {
         console.error(error);
         this.toastr.error('Erro ao tentar carregar Lotes', 'Erro!');
         this.lotesCarregados = true;
+        this.cd.detectChanges();
         this.spinner.hide();
       },
       complete: () => {
@@ -172,6 +181,41 @@ export class EventoDetalheComponent implements OnInit {
       dataFim: [this.converterDataApiParaInput(lote?.dataFim), Validators.required],
       eventoId: [lote?.eventoId ?? this.eventoId],
     });
+  }
+
+  private converterDataEventoParaFormulario(data?: string | Date | null): Date | null {
+    if (!data) return null;
+
+    if (data instanceof Date) {
+      return isNaN(data.getTime()) ? null : data;
+    }
+
+    const valor = String(data).trim();
+
+    if (!valor) return null;
+
+    if (/^\d{4}-\d{2}-\d{2}/.test(valor)) {
+      const dataIso = new Date(valor);
+      return isNaN(dataIso.getTime()) ? null : dataIso;
+    }
+
+    const dataPtBr = valor.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2}))?/);
+
+    if (dataPtBr) {
+      const [, dia, mes, ano, hora = '0', minuto = '0'] = dataPtBr;
+      return new Date(Number(ano), Number(mes) - 1, Number(dia), Number(hora), Number(minuto));
+    }
+
+    const dataFallback = new Date(valor);
+    return isNaN(dataFallback.getTime()) ? null : dataFallback;
+  }
+
+  private converterDataEventoParaApi(data: string | Date | null): string {
+    const dataConvertida = this.converterDataEventoParaFormulario(data);
+
+    if (!dataConvertida) return '';
+
+    return formatDate(dataConvertida, 'dd/MM/yyyy HH:mm', 'pt-BR');
   }
   
   private converterDataApiParaInput(data?: string | Date | null): string {
@@ -230,41 +274,48 @@ export class EventoDetalheComponent implements OnInit {
       'email',
       'descricao',
     ];
-    
+
     const eventoInvalido = camposEvento.some((campo) => this.form.get(campo)?.invalid);
-    
+
     if (eventoInvalido) {
       camposEvento.forEach((campo) => this.form.get(campo)?.markAsTouched());
       this.toastr.warning('Preencha os campos obrigatórios.', 'Atenção');
       return;
     }
-    
+
     this.spinner.show();
-    
-    const { lotes, ...eventoForm } = this.form.value;
-    
+
+    const { lotes, ...eventoForm } = this.form.getRawValue();
+
+    const eventoParaSalvar = {
+      ...eventoForm,
+      dataEvento: this.converterDataEventoParaApi(eventoForm.dataEvento),
+      qtdPessoas: Number(eventoForm.qtdPessoas)
+    };
+
     this.evento = this.estadoSalvar === 'post'
-    ? { ...eventoForm }
-    : { id: this.evento.id, ...eventoForm };
-    
+      ? { ...eventoParaSalvar } as Evento
+      : { id: this.evento.id, ...eventoParaSalvar } as Evento;
+
     this.eventoService[this.estadoSalvar](this.evento).subscribe({
       next: (eventoRetorno: Evento) => {
         this.toastr.success(
           this.estadoSalvar === 'post'
-          ? 'Evento cadastrado com sucesso!'
-          : 'Evento atualizado com sucesso!',
+            ? 'Evento cadastrado com sucesso!'
+            : 'Evento atualizado com sucesso!',
           'Sucesso'
         );
-        
+
         this.evento = eventoRetorno;
         this.eventoId = eventoRetorno.id;
-        
+
         if (this.estadoSalvar === 'post') {
           this.estadoSalvar = 'put';
+          this.cd.detectChanges();
           this.router.navigate([`/eventos/detalhe/${eventoRetorno.id}`]);
           return;
         }
-        
+
         this.carregarLotes();
       },
       error: (error: any) => {
@@ -277,7 +328,7 @@ export class EventoDetalheComponent implements OnInit {
       },
     });
   }
-  
+
   public salvarLotes(): void {
     if (this.lotes.invalid) {
       this.lotes.markAllAsTouched();
@@ -403,7 +454,12 @@ export class EventoDetalheComponent implements OnInit {
       next: (eventoRetorno: Evento) => {
         this.evento = eventoRetorno;
         const { lotes: _lotes, redesSociais: _redesSociais, apresentadoresEventos: _apresentadoresEventos, apresentadores: _apresentadores, ...eventoSemColecoes } = eventoRetorno as any;
-        this.form.patchValue(eventoSemColecoes);
+        this.form.patchValue({
+          ...eventoSemColecoes,
+          dataEvento: this.converterDataEventoParaFormulario(eventoSemColecoes.dataEvento)
+        });
+
+        this.cd.detectChanges();
 
         this.imagemPreview = eventoRetorno.imagemURL
         ? `${API_CONFIG.imageUrl}/${eventoRetorno.imagemURL}`

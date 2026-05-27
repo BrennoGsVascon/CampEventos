@@ -1,4 +1,4 @@
-import {  formatDate } from '@angular/common';
+import { formatDate } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -7,34 +7,40 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DateTimeFormatPipe implements PipeTransform {
 
-  transform(value: string): string {
+  transform(value: string | Date | null | undefined): string {
+    const data = this.converterParaData(value);
 
-    if (!value) {
+    if (!data) {
       return '';
     }
 
-    // separa data e hora
-    const partes = value.split(' ');
+    return formatDate(data, 'dd/MM/yyyy HH:mm', 'pt-BR');
+  }
 
-    // separa dia mes ano
-    const data = partes[0].split('/');
+  private converterParaData(value: string | Date | null | undefined): Date | null {
+    if (!value) return null;
 
-    // pega apenas hora e minuto
-    const hora = partes[1];
+    if (value instanceof Date) {
+      return isNaN(value.getTime()) ? null : value;
+    }
 
-    // cria uma data válida para o Angular
-    const dataConvertida = new Date(
-      Number(data[2]),
-      Number(data[1]) - 1,
-      Number(data[0]),
-      Number(hora.split(':')[0]),
-      Number(hora.split(':')[1])
-    );
+    const valor = String(value).trim();
 
-    return formatDate(
-      dataConvertida,
-      'dd/MM/yyyy HH:mm',
-      'pt-BR'
-    );
+    if (!valor) return null;
+
+    if (/^\d{4}-\d{2}-\d{2}/.test(valor)) {
+      const dataIso = new Date(valor);
+      return isNaN(dataIso.getTime()) ? null : dataIso;
+    }
+
+    const dataPtBr = valor.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2}))?/);
+
+    if (dataPtBr) {
+      const [, dia, mes, ano, hora = '0', minuto = '0'] = dataPtBr;
+      return new Date(Number(ano), Number(mes) - 1, Number(dia), Number(hora), Number(minuto));
+    }
+
+    const dataFallback = new Date(valor);
+    return isNaN(dataFallback.getTime()) ? null : dataFallback;
   }
 }

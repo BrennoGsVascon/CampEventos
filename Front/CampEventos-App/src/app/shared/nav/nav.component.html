@@ -1,5 +1,6 @@
-@if (showMenu()) {
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
   <div class="container">
 
     <a
@@ -24,79 +25,129 @@
       [class.show]="!isCollapsed"
     >
 
+      <!-- MENU ESQUERDA -->
+
       <ul class="navbar-nav me-auto">
 
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLink="/eventos/lista"
-            routerLinkActive="active"
-            (click)="closeNavbar()"
-          >
-            Eventos
-          </a>
-        </li>
+        <ng-container *ngIf="(accountService.currentUser$ | async) !== null">
 
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLink="/apresentadores"
-            routerLinkActive="active"
-            (click)="closeNavbar()"
-          >
-            Apresentadores
-          </a>
-        </li>
+          <li class="nav-item">
 
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLink="/contatos"
-            routerLinkActive="active"
-            (click)="closeNavbar()"
-          >
-            Contatos
-          </a>
-        </li>
+            <a
+              class="nav-link"
+              routerLink="/eventos/lista"
+              routerLinkActive="active"
+              (click)="closeNavbar()"
+            >
+              Eventos
+            </a>
+
+          </li>
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/apresentadores"
+              routerLinkActive="active"
+              (click)="closeNavbar()"
+            >
+              Apresentadores
+            </a>
+
+          </li>
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/contatos"
+              routerLinkActive="active"
+              (click)="closeNavbar()"
+            >
+              Contatos
+            </a>
+
+          </li>
+
+        </ng-container>
+
       </ul>
-      <div class="navbar-nav mr-3 d-xs-none d-none d-md-block">
-        <a class="btn btn-light mr-2 border" routerLink="/user/login">Entrar</a>
-        <a class="btn btn-warning" routerLink="/user/registration">Me Cadastrar</a>
+
+      <!-- NÃO LOGADO -->
+
+      <div
+        *ngIf="(accountService.currentUser$ | async) === null"
+        class="navbar-nav me-3 d-none d-md-block"
+      >
+
+        <a
+          class="btn btn-light me-2 border"
+          routerLink="/user/login"
+        >
+          Entrar
+        </a>
+
+        <a
+          class="btn btn-warning"
+          routerLink="/user/registration"
+        >
+          Me cadastrar
+        </a>
+
       </div>
-      <ul class="navbar-nav">
-      <li ngbDropdown class="nav-item dropdown">
 
-        <button ngbDropdownToggle type="button" class="btn nav-link dropdown-toggle">
-          Brenno
-        </button>
+      <!-- LOGADO -->
 
-        <div ngbDropdownMenu class="droppdown-menu dropdown-menu-end"> 
+      <ul
+        *ngIf="(accountService.currentUser$ | async) !== null"
+        class="navbar-nav"
+      >
 
-        <button
-          ngbDropdownItem
-          type="button"
-          routerLink="/user/perfil"
-          routerLinkActive="active"
-          (click)="closeNavbar()">
-          Perfil
-        </button>
-          
-          <div class="dropdown-divider"></div>
+        <li ngbDropdown class="nav-item dropdown" *ngIf="(accountService.currentUser$ | async) as user" >
 
           <button
-            ngbDropdownItem 
-            type="button" 
-            class="dropdown-item" 
-            (click)="logout()"
-            style="cursor: pointer;">
-            Sair
+            ngbDropdownToggle
+            type="button"
+            class="btn nav-link dropdown-toggle"
+          >
+            {{user.userName | titlecase}}
           </button>
 
-        </div>
-      </li>
-    </ul>
+          <div
+            ngbDropdownMenu
+            class="dropdown-menu dropdown-menu-end"
+          >
+
+            <button
+              ngbDropdownItem
+              type="button"
+              routerLink="/user/perfil"
+              routerLinkActive="active"
+              (click)="closeNavbar()"
+            >
+              Perfil
+            </button>
+
+            <div class="dropdown-divider"></div>
+
+            <button
+              ngbDropdownItem
+              type="button"
+              class="dropdown-item"
+              (click)="logout()"
+            >
+              Sair
+            </button>
+
+          </div>
+
+        </li>
+
+      </ul>
 
     </div>
+
   </div>
+
 </nav>
-}

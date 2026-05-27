@@ -31,8 +31,11 @@ export class AccountService {
   register(model: any): Observable<void> {
     return this.http.post<User>(this.baseUrl + 'register', model).pipe(
       take(1),
-      map((user: User) => {
-        if (user) this.setCurrentUser(user);
+      map((response: User) => {
+        
+        if(response) {
+          this.setCurrentUser(response);
+        }
       })
     );
   }
@@ -50,25 +53,30 @@ export class AccountService {
     );
   }
 
-  setCurrentUser(user: User): void {
-    localStorage.setItem('user', JSON.stringify(user));
-    this.currentUserSource.next(user);
-  }
+  public setCurrentUser(user: User): void {
 
-  loadCurrentUser(): void {
+    if(user) {
+      localStorage.setItem('user', JSON.stringify(user));
+      this.currentUserSource.next(user);
+    }
+  }
+  
+    public loadCurrentUser(): void {
+
     const userJson = localStorage.getItem('user');
 
-    if (!userJson) {
-      this.currentUserSource.next(null);
-      return;
-    }
+    if(!userJson) return;
 
     const user: User = JSON.parse(userJson);
+
     this.currentUserSource.next(user);
   }
 
-  logout(): void {
+
+    logout(): void {
+
     localStorage.removeItem('user');
+
     this.currentUserSource.next(null);
   }
 }
