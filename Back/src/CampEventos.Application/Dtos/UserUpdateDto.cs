@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CampEventos.Domain.Enum;
 
 namespace CampEventos.Application.Dtos
 {
@@ -14,9 +11,11 @@ namespace CampEventos.Application.Dtos
         public string UltimoNome { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        public string Funcao { get; set; }
+        public Nivel Nivel { get; set; }
+        public Funcao Funcao { get; set; }
         public string Descricao { get; set; }
+        public string ImagemURL { get; set; }
         public string Password { get; set; }
-
-   }
+        public string Token { get; set; }
+    }
 }

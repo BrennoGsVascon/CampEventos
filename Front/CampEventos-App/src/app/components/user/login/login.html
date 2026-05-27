@@ -9,10 +9,11 @@
     <h1 class="h3 mb-1 fw-bold">Entrar</h1>
     <p class="text-muted mb-4">Acesse sua conta da Comunidade mais Skateboard de todas!</p>
 
-    <form class="form-signin">
+    <form #loginForm="ngForm" class="form-signin" (ngSubmit)="login()">
 
       <div class="form-floating mb-3">
         <input
+          [(ngModel)]="model.userName"
           type="email"
           id="username"
           name="username"
@@ -25,6 +26,7 @@
 
       <div class="form-floating mb-3">
         <input
+          [(ngModel)]="model.password"
           type="password"
           id="password"
           name="password"
@@ -35,7 +37,7 @@
         <label for="password">Senha</label>
       </div>
 
-      <button class="btn btn-primary btn-lg w-100 mb-3" type="submit">
+      <button [disabled]="!loginForm.valid" class="btn btn-primary btn-lg w-100 mb-3" type="submit">
         Entrar
       </button>
 

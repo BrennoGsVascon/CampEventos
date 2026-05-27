@@ -1,15 +1,15 @@
 import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { provideToastr } from 'ngx-toastr';
 
 import { ApplicationConfig, LOCALE_ID, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
-
-import { provideToastr } from 'ngx-toastr';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { importProvidersFrom } from '@angular/core';
-import { NgxSpinnerModule } from 'ngx-spinner';
 
+import { jwtInterceptor } from './interceptors/jwt-interceptor';
 import { routes } from './app.routes';
 
 defineLocale('pt-br', ptBrLocale);
@@ -20,7 +20,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(NgxSpinnerModule.forRoot()),
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([jwtInterceptor])),
     provideAnimations(),
     provideToastr({
       timeOut: 5000,

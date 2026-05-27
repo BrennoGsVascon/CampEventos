@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -20,60 +19,28 @@ namespace CampEventos.Application
         private readonly IUserPersist _userPersist;
 
         public AccountService(UserManager<User> userManager,
-                             SignInManager<User> signInManager,
-                             IMapper mapper,
-                             IUserPersist userPersist)
+                              SignInManager<User> signInManager,
+                              IMapper mapper,
+                              IUserPersist userPersist)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _mapper = mapper;
             _userPersist = userPersist;
         }
-        
-        public async Task<bool> UserExists(string userName)
-        {
-            try
-            {
-                return await _userManager.FindByNameAsync(userName) != null;
-            }
-            catch (System.Exception ex)
-            {
-                
-                throw new Exception($"Erro ao verificar se o Usuario existe . Erro :{ex.Message}");
-            }
-        }
-        public async Task<User> GetUserByUserNameAsync(string userName)
-        {
-            try
-            {
-                return await _userManager.FindByNameAsync(userName);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Erro ao tentar buscar usuário. Erro: {ex.Message}");
-            }
-        }
 
-        public async Task<UserUpdateDto> GetUserDtoByUserNameAsync(string userName)
+        public async Task<SignInResult> CheckUserPasswordAsync(UserUpdateDto userUpdateDto, string password)
         {
             try
             {
-                var user = await  _userManager.FindByNameAsync(userName);
-                
-                if (user == null) return null;
+                if (userUpdateDto == null || string.IsNullOrWhiteSpace(userUpdateDto.UserName))
+                    return SignInResult.Failed;
 
-                return _mapper.Map<UserUpdateDto>(user);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Erro ao tentar buscar Usuario pelo UserName. Erro: {ex.Message}");
-            }
-        }
+                var user = await GetUserIdentityByUserNameAsync(userUpdateDto.UserName);
 
-        public async Task<SignInResult> CheckUserPasswordAsync(User user, string password)
-        {
-            try
-            {
+                if (user == null)
+                    return SignInResult.Failed;
+
                 return await _signInManager.CheckPasswordSignInAsync(user, password, false);
             }
             catch (Exception ex)
@@ -82,42 +49,68 @@ namespace CampEventos.Application
             }
         }
 
-        public async Task<UserDto> CreateAccountAsync(UserDto userDto)
+        public async Task<User> CreateAccountAsync(UserDto userDto)
         {
             try
             {
+                if (userDto == null)
+                    return null;
+
+                userDto.UserName = userDto.UserName?.ToLower();
+                userDto.Email = userDto.Email?.ToLower();
+
                 var user = _mapper.Map<User>(userDto);
+                user.UserName = userDto.UserName;
+                user.Email = userDto.Email;
+
                 var result = await _userManager.CreateAsync(user, userDto.Password);
 
                 if (result.Succeeded)
-                {
-                    var userToReturn = _mapper.Map<UserDto>(user);
-                    return userToReturn;
-                }
+                    return user;
 
-                return null;
+                throw new Exception(string.Join(" | ", result.Errors.Select(e => e.Description)));
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                
-                throw new Exception($"Erro ao tentar criar conta. Erro :{ex.Message}");
+                throw new Exception($"Erro ao tentar criar conta. Erro: {ex.Message}");
             }
         }
 
-        public async Task<UserUpdateDto> GetUserbyUserNameAsync(string userName)
+        public async Task<UserUpdateDto> GetUserByUserNameAsync(string userName)
         {
             try
             {
-                var user = await _userPersist.GetUserByUserNameAsync(userName);
-                if(user == null) return null;
+                if (string.IsNullOrWhiteSpace(userName))
+                    return null;
 
-                var userUpdateDto = _mapper.Map<UserUpdateDto>(user);
-                return userUpdateDto;
+                var user = await _userPersist.GetUserByUserNameAsync(userName.ToLower());
+
+                if (user == null)
+                    return null;
+
+                return _mapper.Map<UserUpdateDto>(user);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                
-                throw new Exception($"Erro ao tentar buscar Usuario pelo UserName. Erro :{ex.Message}");
+                throw new Exception($"Erro ao tentar buscar usuário. Erro: {ex.Message}");
+            }
+        }
+
+        public async Task<User> GetUserIdentityByUserNameAsync(string userName)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(userName))
+                    return null;
+
+                var normalizedUserName = userName.ToLower();
+
+                return await _userManager.Users
+                    .SingleOrDefaultAsync(user => user.UserName == normalizedUserName);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao tentar buscar usuário do Identity. Erro: {ex.Message}");
             }
         }
 
@@ -125,32 +118,57 @@ namespace CampEventos.Application
         {
             try
             {
-                var user = await _userPersist.GetUserByUserNameAsync(userUpdateDto.UserName);
-                if(user == null) return null;
+                if (userUpdateDto == null || string.IsNullOrWhiteSpace(userUpdateDto.UserName))
+                    return null;
+
+                var user = await _userPersist.GetUserByUserNameAsync(userUpdateDto.UserName.ToLower());
+
+                if (user == null)
+                    return null;
 
                 _mapper.Map(userUpdateDto, user);
 
-                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-                var result = await _userManager.ResetPasswordAsync(user, token, userUpdateDto.Password);
+                user.UserName = user.UserName?.ToLower();
+                user.Email = user.Email?.ToLower();
 
-                _userPersist.Update<User>(user);
+                if (!string.IsNullOrWhiteSpace(userUpdateDto.Password))
+                {
+                    var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                    var result = await _userManager.ResetPasswordAsync(user, token, userUpdateDto.Password);
 
-                if(await _userPersist.SaveChangesAsync())
+                    if (!result.Succeeded)
+                        throw new Exception(string.Join(" | ", result.Errors.Select(e => e.Description)));
+                }
+
+                _userPersist.Update(user);
+
+                if (await _userPersist.SaveChangesAsync())
                 {
                     var userRetorno = await _userPersist.GetUserByUserNameAsync(user.UserName);
-
                     return _mapper.Map<UserUpdateDto>(userRetorno);
                 }
 
                 return null;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                
-                throw new Exception($"Erro ao tentar atualizar Usuario. Erro :{ex.Message}");
+                throw new Exception($"Erro ao tentar atualizar usuário. Erro: {ex.Message}");
             }
         }
 
+        public async Task<bool> UserExists(string userName)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(userName))
+                    return false;
 
+                return await _userManager.FindByNameAsync(userName.ToLower()) != null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao verificar se o usuário existe. Erro: {ex.Message}");
+            }
+        }
     }
 }

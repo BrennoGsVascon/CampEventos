@@ -26,7 +26,7 @@
             <h2 class="mb-2">Cadastro de Usuário</h2>
             <p class="subtitle mb-4">Preencha seus dados para criar sua conta.</p>
 
-            <form [formGroup]="form">
+            <form [formGroup]="form" (ngSubmit)="register()">
 
               <div class="row">
                 <div class="col-md-6 mb-3">
@@ -123,19 +123,19 @@
                   <input
                     type="password"
                     class="form-control"
-                    [class.is-invalid]="f.senha.errors && f.senha.touched"
-                    formControlName="senha"
+                    [class.is-invalid]="f.password.errors && f.password.touched"
+                    formControlName="password"
                     placeholder="Digite uma senha"
                   />
 
-                  @if (f.senha.hasError('required') && f.senha.touched) {
+                  @if (f.password.hasError('required') && f.password.touched) {
                       <div class="invalid-feedback d-block">
                         Senha é obrigatório.
                         
                       </div>
                   }
 
-                  @if (f.senha.hasError('minlength') && f.senha.touched) {
+                  @if (f.password.hasError('minlength') && f.password.touched) {
                       <div class="invalid-feedback d-block">
                         Senha deve ter no mínimo 6 caracteres.
                       </div>
@@ -148,18 +148,18 @@
                   <input
                     type="password"
                     class="form-control"
-                    [class.is-invalid]="f.confirmeSenha.errors && f.confirmeSenha.touched"
-                    formControlName="confirmeSenha"
+                    [class.is-invalid]="f.confirmePassword.errors && f.confirmePassword.touched"
+                    formControlName="confirmePassword"
                     placeholder="Confirme a senha"
                   />
 
-                  @if (f.confirmeSenha.hasError('required') && f.confirmeSenha.touched) {
+                  @if (f.confirmePassword.hasError('required') && f.confirmePassword.touched) {
                       <div class="invalid-feedback d-block">
                       Confirmar a senha é obrigatório
                       </div>
                   }
 
-                   @if(f.confirmeSenha.hasError('mustMach') && f.confirmeSenha.touched) {
+                   @if(f.confirmePassword.hasError('mustMach') && f.confirmePassword.touched) {
             
                     <div class="invalid-feedback">
                       As senhas devem ser iguais 
@@ -181,7 +181,7 @@
                 </label>
               </div>
               
-              <button type="button" class="btn btn-register w-100 mb-3" (click)="resetForm()">
+              <button [disabled]="!form.valid" class="btn btn-register w-100 mb-3" type="submit">
                 Registrar
               </button>
 

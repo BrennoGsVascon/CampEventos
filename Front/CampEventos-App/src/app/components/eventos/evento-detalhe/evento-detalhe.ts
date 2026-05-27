@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, TemplateRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -13,11 +13,6 @@ import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-
-
-
-
-
 
 @Component({
   selector: 'app-evento-detalhe',
@@ -58,7 +53,6 @@ export class EventoDetalheComponent implements OnInit {
     private router: Router,
     private loteService: LoteService,
     private modalService: BsModalService,
-    private cdRef: ChangeDetectorRef,
   )
   
   {
@@ -123,9 +117,9 @@ export class EventoDetalheComponent implements OnInit {
       next: (evento: Evento) => {
         this.evento = { ...evento };
         
-        const { lotes, ...eventoSemLotes } = evento as any;
+        const { lotes: _lotes, redesSociais: _redesSociais, apresentadoresEventos: _apresentadoresEventos, apresentadores: _apresentadores, ...eventoSemColecoes } = evento as any;
         
-        this.form.patchValue(this.evento);
+        this.form.patchValue(eventoSemColecoes);
         this.imagemPreview = this.evento.imagemURL
         ? `${API_CONFIG.imageUrl}/${this.evento.imagemURL}`
         : 'assets/img/semImagem.jpeg';
@@ -150,13 +144,11 @@ export class EventoDetalheComponent implements OnInit {
         });
         
         this.lotesCarregados = true;
-        this.cdRef.detectChanges();
       },
       error: (error: any) => {
         console.error(error);
         this.toastr.error('Erro ao tentar carregar Lotes', 'Erro!');
         this.lotesCarregados = true;
-        this.cdRef.detectChanges();
         this.spinner.hide();
       },
       complete: () => {
@@ -324,22 +316,27 @@ export class EventoDetalheComponent implements OnInit {
   
   private converterDataInputParaApi(data: string | Date): string {
     if (!data) return '';
-    
+
     if (data instanceof Date) {
-      const dia = String(data.getDate()).padStart(2, '0');
-      const mes = String(data.getMonth() + 1).padStart(2, '0');
       const ano = data.getFullYear();
-      
-      return `${dia}/${mes}/${ano}`;
+      const mes = String(data.getMonth() + 1).padStart(2, '0');
+      const dia = String(data.getDate()).padStart(2, '0');
+
+      return `${ano}-${mes}-${dia}`;
     }
-    
-    if (data.includes('/')) {
-      return data.split(' ')[0];
+
+    const dataSemHora = data.split('T')[0].split(' ')[0];
+
+    if (/^\d{4}-\d{2}-\d{2}$/.test(dataSemHora)) {
+      return dataSemHora;
     }
-    
-    const [ano, mes, dia] = data.split('-');
-    
-    return `${dia}/${mes}/${ano}`;
+
+    if (dataSemHora.includes('/')) {
+      const [dia, mes, ano] = dataSemHora.split('/');
+      return `${ano}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
+    }
+
+    return dataSemHora;
   }
   
   public removerLote(template: TemplateRef<any>, index: number): void {
@@ -405,7 +402,8 @@ export class EventoDetalheComponent implements OnInit {
     this.eventoService.postUpload(this.eventoId, this.file).subscribe({
       next: (eventoRetorno: Evento) => {
         this.evento = eventoRetorno;
-        this.form.patchValue(eventoRetorno);
+        const { lotes: _lotes, redesSociais: _redesSociais, apresentadoresEventos: _apresentadoresEventos, apresentadores: _apresentadores, ...eventoSemColecoes } = eventoRetorno as any;
+        this.form.patchValue(eventoSemColecoes);
 
         this.imagemPreview = eventoRetorno.imagemURL
         ? `${API_CONFIG.imageUrl}/${eventoRetorno.imagemURL}`

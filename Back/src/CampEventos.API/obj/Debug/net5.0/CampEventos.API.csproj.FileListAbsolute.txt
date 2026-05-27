@@ -65,6 +65,20 @@ C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\n
 C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\appsettings.json
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\CampEventos.API.exe
@@ -77,6 +91,10 @@ C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEven
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Humanizer.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Data.Sqlite.dll
@@ -88,6 +106,13 @@ C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEven
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.OpenApi.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
@@ -99,6 +124,7 @@ C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEven
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\runtimes\alpine-x64\native\libe_sqlite3.so
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\runtimes\linux-arm\native\libe_sqlite3.so
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\runtimes\linux-arm64\native\libe_sqlite3.so
@@ -134,29 +160,3 @@ C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEven
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\obj\Debug\net5.0\ref\CampEventos.API.dll
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\obj\Debug\net5.0\CampEventos.API.pdb
 C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\obj\Debug\net5.0\CampEventos.API.genruntimeconfig.cache
-C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\AutoMapper.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\e.brenno.silva\Desktop\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\br4nn\OneDrive\Documentos\OneDriveC\OneDrive\Área de Trabalho\CampEventos\Back\src\CampEventos.API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

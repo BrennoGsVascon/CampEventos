@@ -10,6 +10,6 @@ namespace CampEventos.Persistence.Contratos
     {
         Task<IEnumerable<User>> GetUsersAsync();
         Task<User> GetUserByIdAsync(int id);
-        Task<User> GetUserByUserNameAsync(string username);
+        Task<User> GetUserByUserNameAsync(string userName);
     }
 }

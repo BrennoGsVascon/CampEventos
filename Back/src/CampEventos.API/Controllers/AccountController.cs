@@ -1,21 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
+using CampEventos.API.Extensions;
 using CampEventos.Application.Contratos;
 using CampEventos.Application.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using CampEventos.Domain.Identity;
-using System.Security.Claims;
-using CampEventos.API.Extensions;
 
 namespace CampEventos.API.Controllers
 {
-    
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
@@ -25,7 +18,7 @@ namespace CampEventos.API.Controllers
         private readonly ITokenService _tokenService;
 
         public AccountController(IAccountService accountService,
-                                ITokenService tokenService)
+                                 ITokenService tokenService)
         {
             _accountService = accountService;
             _tokenService = tokenService;
@@ -37,13 +30,21 @@ namespace CampEventos.API.Controllers
             try
             {
                 var userName = User.GetUserName();
-                var user = await _accountService.GetUserDtoByUserNameAsync(userName);
+
+                if (string.IsNullOrWhiteSpace(userName))
+                    return Unauthorized("Usuário inválido.");
+
+                var user = await _accountService.GetUserByUserNameAsync(userName);
+
+                if (user == null)
+                    return Unauthorized("Usuário inválido.");
+
                 return Ok(user);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError,
-                                        $"Erro ao tentar recuperar Usuario. Erro{ex.Message}");
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar recuperar usuário. Erro: {ex.Message}");
             }
         }
 
@@ -53,20 +54,30 @@ namespace CampEventos.API.Controllers
         {
             try
             {
-                if(await _accountService.UserExists(userDto.UserName))
-                    return BadRequest("Usuario ja existe!");
+                if (userDto == null)
+                    return BadRequest("Dados de usuário inválidos.");
+
+                if (await _accountService.UserExists(userDto.UserName))
+                    return BadRequest("Usuário já existe!");
 
                 var user = await _accountService.CreateAccountAsync(userDto);
-                if(user != null)
-                    return Ok(user);
 
-                return BadRequest("Usuario nao criado, tente novamente mais tarde!");
+                if (user == null)
+                    return BadRequest("Usuário não criado, tente novamente mais tarde!");
 
+                return Ok(new
+                {
+                    userName = user.UserName,
+                    email = user.Email,
+                    primeiroNome = user.PrimeiroNome,
+                    ultimoNome = user.UltimoNome,
+                    token = await _tokenService.CreateToken(user)
+                });
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError,
-                                        $"Erro ao tentar registrar usuario. Erro{ex.Message}");
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar registrar usuário. Erro: {ex.Message}");
             }
         }
 
@@ -76,24 +87,37 @@ namespace CampEventos.API.Controllers
         {
             try
             {
-                var user = await _accountService.GetUserByUserNameAsync(userLogin.UserName);
-                if(user == null) return Unauthorized("Usuario ou senha está errado");
-                
-                var result = await _accountService.CheckUserPasswordAsync(user, userLogin.Password);
-                if(!result.Succeeded) return Unauthorized();
+                if (userLogin == null)
+                    return BadRequest("Dados de login inválidos.");
+
+                var userDto = await _accountService.GetUserByUserNameAsync(userLogin.UserName);
+
+                if (userDto == null)
+                    return Unauthorized("Usuário ou senha está errado.");
+
+                var result = await _accountService.CheckUserPasswordAsync(userDto, userLogin.Password);
+
+                if (!result.Succeeded)
+                    return Unauthorized("Usuário ou senha está errado.");
+
+                var user = await _accountService.GetUserIdentityByUserNameAsync(userDto.UserName);
+
+                if (user == null)
+                    return Unauthorized("Usuário ou senha está errado.");
 
                 return Ok(new
                 {
                     userName = user.UserName,
-                    PrimeiroNome = user.PrimeiroNome,
+                    email = user.Email,
+                    primeiroNome = user.PrimeiroNome,
+                    ultimoNome = user.UltimoNome,
                     token = await _tokenService.CreateToken(user)
                 });
-
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError,
-                                        $"Erro ao tentar realizar login. Erro{ex.Message}");
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar realizar login. Erro: {ex.Message}");
             }
         }
 
@@ -102,20 +126,40 @@ namespace CampEventos.API.Controllers
         {
             try
             {
-                var user = await _accountService.GetUserByUserNameAsync(User.GetUserName());
-                if(user == null) return Unauthorized("Usuario invalido!");
+                if (userUpdateDto == null)
+                    return BadRequest("Dados de usuário inválidos.");
+
+                userUpdateDto.UserName = User.GetUserName();
+
+                if (string.IsNullOrWhiteSpace(userUpdateDto.UserName))
+                    return Unauthorized("Usuário inválido.");
 
                 var userReturn = await _accountService.UpdateAccount(userUpdateDto);
-                if(userReturn == null) return NoContent();
 
-                return Ok(userReturn);
+                if (userReturn == null)
+                    return NoContent();
 
+                var user = await _accountService.GetUserIdentityByUserNameAsync(userReturn.UserName);
+
+                if (user == null)
+                    return Unauthorized("Usuário inválido.");
+
+                return Ok(new
+                {
+                    userName = userReturn.UserName,
+                    email = userReturn.Email,
+                    primeiroNome = userReturn.PrimeiroNome,
+                    ultimoNome = userReturn.UltimoNome,
+                    phoneNumber = userReturn.PhoneNumber,
+                    imagemURL = userReturn.ImagemURL,
+                    token = await _tokenService.CreateToken(user)
+                });
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError,
-                                        $"Erro ao tentar atualizar Usuario. Erro: {ex.Message}");
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar atualizar usuário. Erro: {ex.Message}");
             }
         }
-    }    
+    }
 }

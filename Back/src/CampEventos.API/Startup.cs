@@ -90,7 +90,7 @@ namespace CampEventos.API
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "CampEventos.API", Version = "v1" });
-                options.AddSecurityDefinition("Beare", new OpenApiSecurityScheme
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                   Description = @"JWT Authorization header usando Bearer.
                                 Entre com 'Bearer ' [espaço] então coloque seu token.
@@ -134,13 +134,14 @@ namespace CampEventos.API
 
             app.UseRouting();
 
-            app.UseAuthentication();
-            app.UseAuthorization();
-
             app.UseCors(x =>
              x.AllowAnyHeader()
                .AllowAnyMethod()
                 .AllowAnyOrigin());
+                
+            app.UseAuthentication();
+            app.UseAuthorization();
+
 
             app.UseStaticFiles(new StaticFileOptions()
             {

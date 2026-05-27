@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,22 +10,30 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss'
 })
-export class NavComponent {
-  constructor(private router: Router) {}
+  export class NavComponent {
+    isCollapsed = true;
 
-  isCollapsed = true;
 
-  toggleNavbar(): void {
-    this.isCollapsed = !this.isCollapsed;
-  }
+      constructor(public accountService: AccountService,
+                  private router: Router) {}
 
-  closeNavbar(): void {
-    this.isCollapsed = true;
-  }
 
-   showMenu(): boolean {
-    return !this.router.url.includes('/user/login')
-        && !this.router.url.includes('/user/registration');
-}
+      toggleNavbar(): void {
+        this.isCollapsed = !this.isCollapsed;
+      }
+
+      closeNavbar(): void {
+        this.isCollapsed = true;
+      }
+
+      showMenu(): boolean {
+        return !this.router.url.includes('/user/login')
+            && !this.router.url.includes('/user/registration');
+      }
+      
+      logout(): void {
+        this.accountService.logout();
+        this.router.navigate(['/user/login']);
+      }
   }
 

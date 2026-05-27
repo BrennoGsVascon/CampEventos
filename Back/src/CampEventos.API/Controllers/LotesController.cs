@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CampEventos.Application.Dtos;
 using CampEventos.Domain;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CampEventos.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class LotesController : ControllerBase

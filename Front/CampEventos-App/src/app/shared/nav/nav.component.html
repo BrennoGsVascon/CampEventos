@@ -59,7 +59,10 @@
           </a>
         </li>
       </ul>
-
+      <div class="navbar-nav mr-3 d-xs-none d-none d-md-block">
+        <a class="btn btn-light mr-2 border" routerLink="/user/login">Entrar</a>
+        <a class="btn btn-warning" routerLink="/user/registration">Me Cadastrar</a>
+      </div>
       <ul class="navbar-nav">
       <li ngbDropdown class="nav-item dropdown">
 
@@ -80,7 +83,12 @@
           
           <div class="dropdown-divider"></div>
 
-          <button ngbDropdownItem type="button" class="dropdown-item" routerLink="/user/registration">
+          <button
+            ngbDropdownItem 
+            type="button" 
+            class="dropdown-item" 
+            (click)="logout()"
+            style="cursor: pointer;">
             Sair
           </button>
 

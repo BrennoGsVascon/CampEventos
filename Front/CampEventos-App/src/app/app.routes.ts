@@ -24,7 +24,7 @@ export const routes: Routes = [
             
         ]
     },
-    {path: 'eventos', redirectTo: 'evento/lista'},
+    {path: 'eventos', redirectTo: 'eventos/lista', pathMatch: 'full'},
     {path: 'eventos', component: EventosComponent,
         children: [
             { path: '', redirectTo: 'lista', pathMatch: 'full' },
