@@ -3,6 +3,8 @@ using System.Globalization;
 using AutoMapper;
 using CampEventos.Application.Dtos;
 using CampEventos.Domain;
+using CampEventos.Domain.Identity;
+using CampEventos.Domain.Enum;
 
 namespace CampEventos.Application.helpers
 {
@@ -22,8 +24,26 @@ namespace CampEventos.Application.helpers
                 .ForMember(dest => dest.DataInicio, opt => opt.MapFrom(src => ParseNullableDateTime(src.DataInicio)))
                 .ForMember(dest => dest.DataFim, opt => opt.MapFrom(src => ParseNullableDateTime(src.DataFim)));
 
+            CreateMap<User, UserUpdateDto>()
+                .ForMember(dest => dest.Nivel, opt => opt.MapFrom(src => src.Nivel.ToString()))
+                .ForMember(dest => dest.Funcao, opt => opt.MapFrom(src => src.Funcao.ToString()))
+                .ReverseMap()
+                .ForMember(dest => dest.Nivel, opt => opt.MapFrom(src =>
+                    string.IsNullOrWhiteSpace(src.Nivel)
+                        ? Nivel.NaoInformado
+                        : Enum.Parse<Nivel>(src.Nivel)
+                ))
+                .ForMember(dest => dest.Funcao, opt => opt.MapFrom(src =>
+                    string.IsNullOrWhiteSpace(src.Funcao)
+                        ? Funcao.NaoInformado
+                        : Enum.Parse<Funcao>(src.Funcao)
+                ));
+
             CreateMap<RedeSocial, RedeSocialDto>().ReverseMap();
             CreateMap<Apresentador, ApresentadorDto>().ReverseMap();
+            CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<User, UserLoginDto>().ReverseMap();
+            CreateMap<User, UserUpdateDto>().ReverseMap();
         }
 
         private static string FormatDateTime(DateTime? date)

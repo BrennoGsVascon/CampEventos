@@ -137,7 +137,7 @@
 
                   @if (f.password.hasError('minlength') && f.password.touched) {
                       <div class="invalid-feedback d-block">
-                        Senha deve ter no mínimo 6 caracteres.
+                        Senha deve ter no mínimo 4 caracteres.
                       </div>
                   }
 
@@ -161,7 +161,7 @@
 
                    @if(f.confirmePassword.hasError('mustMach') && f.confirmePassword.touched) {
             
-                    <div class="invalid-feedback">
+                    <div class="invalid-feedback d-block">
                       As senhas devem ser iguais 
                     </div>
                    }

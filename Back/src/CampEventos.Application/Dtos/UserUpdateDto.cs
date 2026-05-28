@@ -4,15 +4,13 @@ namespace CampEventos.Application.Dtos
 {
     public class UserUpdateDto
     {
-        public int Id { get; set; }
-        public string Titulo { get; set; }
+        public string Nivel { get; set; }
         public string UserName { get; set; }
         public string PrimeiroNome { get; set; }
         public string UltimoNome { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        public Nivel Nivel { get; set; }
-        public Funcao Funcao { get; set; }
+        public string Funcao { get; set; }
         public string Descricao { get; set; }
         public string ImagemURL { get; set; }
         public string Password { get; set; }

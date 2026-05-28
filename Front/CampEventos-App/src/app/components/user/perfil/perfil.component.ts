@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  AbstractControlOptions,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
 
 import { TituloComponent } from '../../../shared/titulo/titulo.component';
 import { ValidatorFild } from '../../../helpers/ValidatorFild';
@@ -18,17 +24,18 @@ import { Router } from '@angular/router';
 })
 export class PerfilComponent implements OnInit {
   userUpdate = {} as UserUpdate;
-   form!: FormGroup;
+  form!: FormGroup;
 
   get f(): any {
     return this.form.controls;
   }
 
-  constructor(private fb: FormBuilder,
-              public accountService: AccountService,
-              private router: Router,
-              private toaster: ToastrService,
-              private spinner: NgxSpinnerService
+  constructor(
+    private fb: FormBuilder,
+    public accountService: AccountService,
+    private router: Router,
+    private toaster: ToastrService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -37,35 +44,117 @@ export class PerfilComponent implements OnInit {
   }
 
   private carregarUsuario(): void {
-    this.accountService.getUser()
+    this.spinner.show();
+
+    this.accountService.getUser().subscribe(
+      (userRetorno: UserUpdate) => {
+        this.userUpdate = userRetorno;
+
+        this.form.patchValue({
+          nivel: userRetorno.nivel,
+          userName: userRetorno.userName,
+          primeiroNome: userRetorno.primeiroNome,
+          ultimoNome: userRetorno.ultimoNome,
+          email: userRetorno.email,
+          phoneNumber: userRetorno.phoneNumber,
+          funcao: userRetorno.funcao,
+          descricao: userRetorno.descricao,
+          imagemURL: userRetorno.imagemURL,
+          password: '',
+          confirmarPassword: ''
+        });
+
+        this.toaster.success('Usuário carregado com sucesso.', 'Sucesso');
+      },
+      (error) => {
+        console.error(error);
+        this.toaster.error('Erro ao carregar usuário.', 'Erro');
+        this.router.navigate(['/dashboard']);
+      }
+    ).add(() => this.spinner.hide());
   }
 
   onSubmit(): void {
-    if(this.form.invalid) {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      this.toaster.error('Preencha os campos obrigatórios corretamente.', 'Erro');
       return;
     }
+
+    this.atualizarUsuario();
   }
 
-  public validation(): void {
+  public atualizarUsuario(): void {
+    this.userUpdate = {
+      ...this.userUpdate,
+      ...this.form.value
+    };
+
+    if (!this.userUpdate.password) {
+      delete this.userUpdate.password;
+    }
+
+    this.spinner.show();
+
+    this.accountService.updateUser(this.userUpdate).subscribe(
+      (userRetorno) => {
+        this.toaster.success('Usuário atualizado com sucesso.', 'Sucesso');
+
+        this.form.patchValue({
+          password: '',
+          confirmarPassword: ''
+        });
+      },
+      (error) => {
+        console.error(error);
+        this.toaster.error(
+          error?.error || 'Erro ao atualizar usuário.',
+          'Erro'
+        );
+      }
+    ).add(() => this.spinner.hide());
+  }
+
+  private validation(): void {
+    const formOptions: AbstractControlOptions = {
+      validators: ValidatorFild.MustMatch('password', 'confirmarPassword')
+    };
 
     this.form = this.fb.group({
-      
-      nivel: ['', Validators.required],
+      nivel: ['NaoInformado', Validators.required],
+      userName: [''],
       primeiroNome: ['', Validators.required],
       ultimoNome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      telefone: ['', Validators.required],
-      funcao: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      funcao: ['NaoInformado', Validators.required],
       descricao: ['', [Validators.required, Validators.minLength(10)]],
-      senha: ['', [Validators.required, Validators.minLength(6)]],
-      confirmarSenha: ['', Validators.required],
-    }, {
-      validators: ValidatorFild.MustMatch('senha', 'confirmarSenha')
-    });
+      imagemURL: [''],
+      password: ['', Validators.minLength(6)],
+      confirmarPassword: ['']
+    }, formOptions);
   }
 
-  public resetForm(event: any): void {
+  public resetForm(event: Event): void {
     event.preventDefault();
-    this.form.reset();
+
+    this.form.patchValue({
+      nivel: this.userUpdate.nivel,
+      userName: this.userUpdate.userName,
+      primeiroNome: this.userUpdate.primeiroNome,
+      ultimoNome: this.userUpdate.ultimoNome,
+      email: this.userUpdate.email,
+      phoneNumber: this.userUpdate.phoneNumber,
+      funcao: this.userUpdate.funcao,
+      descricao: this.userUpdate.descricao,
+      imagemURL: this.userUpdate.imagemURL,
+      password: '',
+      confirmarPassword: ''
+    });
+
+    this.form.markAsPristine();
+    this.form.markAsUntouched();
+
+    this.toaster.info('Alterações canceladas.', 'Perfil');
   }
 }

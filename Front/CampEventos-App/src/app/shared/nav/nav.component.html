@@ -1,153 +1,75 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
   <div class="container">
 
-    <a
-      class="navbar-brand"
-      routerLink="/dashboard"
-      (click)="closeNavbar()"
-    >
+    <a class="navbar-brand" routerLink="/home" (click)="closeNavbar()">
       <i class="fa fa-users mb-1"></i>
     </a>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      (click)="toggleNavbar()"
-    >
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div
-      class="navbar-collapse"
-      [class.collapse]="isCollapsed"
-      [class.show]="!isCollapsed"
-    >
-
-      <!-- MENU ESQUERDA -->
+    <div class="navbar-collapse" [class.collapse]="isCollapsed" [class.show]="!isCollapsed">
 
       <ul class="navbar-nav me-auto">
-
         <ng-container *ngIf="(accountService.currentUser$ | async) !== null">
+          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard" routerLinkActive="active" (click)="closeNavbar()">
+              Dashboard
+            </a>
+          </li>
 
           <li class="nav-item">
-
-            <a
-              class="nav-link"
-              routerLink="/eventos/lista"
-              routerLinkActive="active"
-              (click)="closeNavbar()"
-            >
+            <a class="nav-link" routerLink="/eventos/lista" routerLinkActive="active" (click)="closeNavbar()">
               Eventos
             </a>
-
           </li>
 
-          <li class="nav-item">
 
-            <a
-              class="nav-link"
-              routerLink="/apresentadores"
-              routerLinkActive="active"
-              (click)="closeNavbar()"
-            >
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/apresentadores" routerLinkActive="active" (click)="closeNavbar()">
               Apresentadores
             </a>
-
           </li>
 
           <li class="nav-item">
-
-            <a
-              class="nav-link"
-              routerLink="/contatos"
-              routerLinkActive="active"
-              (click)="closeNavbar()"
-            >
+            <a class="nav-link" routerLink="/contatos" routerLinkActive="active" (click)="closeNavbar()">
               Contatos
             </a>
-
           </li>
 
         </ng-container>
-
       </ul>
 
-      <!-- NÃO LOGADO -->
-
-      <div
-        *ngIf="(accountService.currentUser$ | async) === null"
-        class="navbar-nav me-3 d-none d-md-block"
-      >
-
-        <a
-          class="btn btn-light me-2 border"
-          routerLink="/user/login"
-        >
-          Entrar
-        </a>
-
-        <a
-          class="btn btn-warning"
-          routerLink="/user/registration"
-        >
-          Me cadastrar
-        </a>
-
+      <div *ngIf="(accountService.currentUser$ | async) === null" class="navbar-nav me-3 d-none d-md-block">
+        <a class="btn btn-light me-2 border" routerLink="/user/login">Entrar</a>
+        <a class="btn btn-warning" routerLink="/user/registration">Me cadastrar</a>
       </div>
 
-      <!-- LOGADO -->
+      <ul *ngIf="(accountService.currentUser$ | async) !== null" class="navbar-nav">
+        <li ngbDropdown class="nav-item dropdown" *ngIf="(accountService.currentUser$ | async) as user">
 
-      <ul
-        *ngIf="(accountService.currentUser$ | async) !== null"
-        class="navbar-nav"
-      >
-
-        <li ngbDropdown class="nav-item dropdown" *ngIf="(accountService.currentUser$ | async) as user" >
-
-          <button
-            ngbDropdownToggle
-            type="button"
-            class="btn nav-link dropdown-toggle"
-          >
-            {{user.userName | titlecase}}
+          <button ngbDropdownToggle type="button" class="btn nav-link dropdown-toggle">
+            {{ user.primeiroNome || user.userName | titlecase }}
           </button>
 
-          <div
-            ngbDropdownMenu
-            class="dropdown-menu dropdown-menu-end"
-          >
-
-            <button
-              ngbDropdownItem
-              type="button"
-              routerLink="/user/perfil"
-              routerLinkActive="active"
-              (click)="closeNavbar()"
-            >
+          <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+            <button ngbDropdownItem type="button" routerLink="/user/perfil" routerLinkActive="active" (click)="closeNavbar()">
               Perfil
             </button>
 
             <div class="dropdown-divider"></div>
 
-            <button
-              ngbDropdownItem
-              type="button"
-              class="dropdown-item"
-              (click)="logout()"
-            >
+            <button ngbDropdownItem type="button" class="dropdown-item" (click)="logout()">
               Sair
             </button>
-
           </div>
 
         </li>
-
       </ul>
 
     </div>
-
   </div>
-
 </nav>

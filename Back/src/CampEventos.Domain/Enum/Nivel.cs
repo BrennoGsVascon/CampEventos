@@ -3,9 +3,9 @@ namespace CampEventos.Domain.Enum
     public enum Nivel
     {
         NaoInformado,
-        Inciante,
+        Iniciante,
         Intermediario,
-        Avançado,
-        Profissional,
+        Avancado,
+        Profissional
     }
 }

@@ -5,6 +5,7 @@ import { LoginComponent } from './components/user/login/login';
 import { RegistrationComponent } from './components/user/registration/registration';
 import { PerfilComponent } from './components/user/perfil/perfil.component';
 
+import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ApresentadoresComponent } from './components/apresentadores/apresentadores';
 
@@ -40,6 +41,7 @@ export const routes: Routes = [
 
   { path: 'contatos', component: ContatosComponent, canActivate: [authGuard] },
   { path: 'apresentadores', component: ApresentadoresComponent, canActivate: [authGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
   { path: 'user/perfil', component: PerfilComponent, canActivate: [authGuard] },
 

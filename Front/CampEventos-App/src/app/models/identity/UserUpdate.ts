@@ -1,5 +1,5 @@
 export interface UserUpdate {
-  titulo: string;
+  nivel: string;
   userName: string;
   primeiroNome: string;
   ultimoNome: string;

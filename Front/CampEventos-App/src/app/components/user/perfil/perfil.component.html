@@ -1,4 +1,4 @@
-<app-titulo [titulo]="'Perfil'"></app-titulo>
+<app-titulo [titulo]="'Perfil'" [iconClass]="'fa-regular fa-user'"></app-titulo>
 
 <div class="perfil-page">
   <div class="perfil-wrapper">
@@ -89,11 +89,11 @@
                 formControlName="nivel"
                 [class.is-invalid]="f.nivel.errors && f.nivel.touched">
 
-                <option value="">Selecione</option>
-                <option>Iniciante</option>
-                <option>Intermediário</option>
-                <option>Avançado</option>
-                <option>Profissional</option>
+                <option value="NaoInformado">Selecione</option>
+                <option value="Iniciante">Iniciante</option>
+                <option value="Intermediario">Intermediário</option>
+                <option value="Avancado">Avançado</option>
+                <option value="Profissional">Profissional</option>
 
               </select>
 
@@ -187,12 +187,12 @@
               <input
                 type="text"
                 class="form-control"
-                formControlName="telefone"
-                [class.is-invalid]="f.telefone.errors && f.telefone.touched"
+                formControlName="phoneNumber"
+                [class.is-invalid]="f.phoneNumber.errors && f.phoneNumber.touched"
                 placeholder="Digite seu telefone"
               />
 
-              @if (f.telefone.hasError('required') && f.telefone.touched) {
+              @if (f.phoneNumber.hasError('required') && f.phoneNumber.touched) {
                 <div class="invalid-feedback d-block">
                   Telefone é obrigatório.
                 </div>
@@ -210,12 +210,12 @@
                 formControlName="funcao"
                 [class.is-invalid]="f.funcao.errors && f.funcao.touched">
 
-                <option value="">Selecione</option>
-                <option>Participante</option>
-                <option>Organizador</option>
-                <option>Atleta</option>
-                <option>Fotógrafo</option>
-                <option>Patrocinador</option>
+                <option value="NaoInformado">Selecione</option>
+                <option value="Participante">Participante</option>
+                <option value="Organizador">Organizador</option>
+                <option value="Atleta">Atleta</option>
+                <option value="Fotografo">Fotógrafo</option>
+                <option value="Patrocinador">Patrocinador</option>
 
               </select>
 
@@ -239,12 +239,11 @@
               class="form-control"
               formControlName="descricao"
               [class.is-invalid]="f.descricao.errors && f.descricao.touched"
-              placeholder="Ex: Curto campeonatos de street, bowl e eventos em praças públicas.">
-            </textarea>
+              placeholder="Ex: Curto campeonatos de street, bowl e eventos em praças públicas."></textarea>
 
             @if (f.descricao.hasError('required') && f.descricao.touched) {
               <div class="invalid-feedback d-block">
-                Descrição obrigatória.
+              Descrição obrigatória.
               </div>
             }
 
@@ -267,18 +266,18 @@
               <input
                 type="password"
                 class="form-control"
-                formControlName="senha"
-                [class.is-invalid]="f.senha.errors && f.senha.touched"
+                formControlName="password"
+                [class.is-invalid]="f.password.errors && f.password.touched"
                 placeholder="Digite a nova senha"
               />
 
-              @if (f.senha.hasError('required') && f.senha.touched) {
+              @if (f.password.hasError('required') && f.password.touched) {
                     <div class="invalid-feedback d-block">
                       Senha é obrigatório
                     </div>
                   }
 
-              @if (f.senha.hasError('minlength') && f.senha.touched) {
+              @if (f.password.hasError('minlength') && f.password.touched) {
                 <div class="invalid-feedback d-block">
                   Senha deve ter no mínimo 6 caracteres.
                 </div>
@@ -294,18 +293,18 @@
               <input
                 type="password"
                 class="form-control"
-                formControlName="confirmarSenha"
-                [class.is-invalid]="f.confirmarSenha.errors && f.confirmarSenha.touched"
+                formControlName="confirmarPassword"
+                [class.is-invalid]="f.confirmarPassword.errors && f.confirmarPassword.touched"
                 placeholder="Confirme a nova senha"
                 />
 
-              @if (f.confirmarSenha.hasError('required') && f.confirmarSenha.touched) {
+              @if (f.confirmarPassword.hasError('required') && f.confirmarPassword.touched) {
                   <div class="invalid-feedback d-block">
                     Confirmar a senha é obrigatório
                   </div>
               }
 
-              @if (f.confirmarSenha.hasError('mustMatch') && f.confirmarSenha.touched) {
+              @if (f.confirmarPassword.hasError('mustMatch') && f.confirmarPassword.touched) {
                 <div class="invalid-feedback d-block">
                   As senhas devem ser iguais.
                 </div>
@@ -329,8 +328,7 @@
 
             <button
               type="submit"
-              class="btn btn-save"
-              [disabled]="!form.valid">
+              class="btn btn-save">
 
               <i class="fa fa-save me-1"></i>
               Salvar Alteração
