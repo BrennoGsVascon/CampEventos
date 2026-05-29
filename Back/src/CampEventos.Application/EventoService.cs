@@ -5,6 +5,8 @@ using CampEventos.Application.Contratos;
 using CampEventos.Domain;
 using CampEventos.Application.Dtos;
 using AutoMapper;
+using CampEventos.Persistence.Models;
+using System.Collections.Generic;
 
 
 namespace CampEventos.Application
@@ -88,45 +90,33 @@ namespace CampEventos.Application
             }
         }
 
-        public async Task<EventoDto[]> GetAllEventosAsync(int userId, bool includeApresentadores = false)
+        public async Task<PageList<EventoDto>> GetAllEventosAsync(int userId, PageParams pageParams, bool includeApresentadores = false)
         {
             try
             {
-                var eventos = await _eventoPersist.GetAllEventosAsync(userId, includeApresentadores);
+                var eventos = await _eventoPersist.GetAllEventosAsync(
+                    userId,
+                    pageParams,
+                    includeApresentadores
+                );
+
                 if (eventos == null) return null;
 
-                var resultado = mapper.Map<EventoDto[]>(eventos);
+                var resultado = mapper.Map<List<EventoDto>>(eventos);
 
-
-                return resultado;
+                return new PageList<EventoDto>(
+                    resultado,
+                    eventos.TotalCount,
+                    eventos.CurrentPage,
+                    eventos.PageSize
+                );
             }
-
             catch (Exception ex)
             {
-                
                 throw new Exception(ex.Message);
             }
         }
 
-        public async Task<EventoDto[]> GetAllEventosByTemaAsync(int userId, string tema, bool includeApresentadores = false)
-        {
-            try
-            {
-                var eventos = await _eventoPersist.GetAllEventosByTemaAsync(userId, tema, includeApresentadores);
-                if (eventos == null) return null;
-
-                var resultado = mapper.Map<EventoDto[]>(eventos);
-
-
-                return resultado;
-            }
-
-            catch (Exception ex)
-            {
-                
-                throw new Exception(ex.Message);
-            }
-        }
 
         public async Task<EventoDto> GetEventoByIdAsync(int userId, int eventoId, bool includeApresentadores = false)
         {
@@ -147,5 +137,6 @@ namespace CampEventos.Application
                 throw new Exception(ex.Message);
             }
         }
+
     }
 }

@@ -73,6 +73,9 @@ Migrations/
  20260523083616_Adicionando-Identity.cs
  20260523083616_Adicionando-Identity.Designer.cs
  CampEventosContextModelSnapshot.cs
+Models/
+ PageList.cs
+ PageParams.cs
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs
  CampEventos.Persistence.AssemblyInfo.cs

@@ -1,4 +1,4 @@
-<p>Total de eventos: {{ eventos.length }}</p>
+<p>Total de eventos: {{ pagination.totalItems }}</p>
 
 <div class="card rounded shadow-sm p-3 mb-5 bg-body">
   
@@ -46,9 +46,9 @@
     </tr>
   </thead>
   
-  @if (eventosFiltrados && eventosFiltrados.length > 0) {
+  @if (eventos && eventos.length > 0) {
     <tbody>
-      @for (evento of eventosFiltrados; track evento.id) {
+      @for (evento of eventos; track evento.id) {
         <tr style="cursor: pointer;" (click)="detalheEvento(evento.id)">
           <td>{{ evento.id }}</td>
           
@@ -91,7 +91,19 @@
   </tfoot>
 }
 </table>
-
+  <div class="d-flex justify-content-center mt-3">
+    <pagination 
+        [boundaryLinks]="true"
+        [totalItems]="pagination.totalItems"
+        [itemsPerPage]="pagination.itemsPerPage"
+        [(ngModel)]="pagination.currentPage"
+        previousText="&lsaquo;"
+        nextText="&rsaquo;"
+        firstText="&laquo;"
+        lastText="&raquo;"
+        (pageChanged)="pageChanged($event)">
+    </pagination>   
+  </div>
 </div>
 
 <ng-template #template let-modal>

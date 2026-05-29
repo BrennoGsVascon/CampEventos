@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CampEventos.Domain;
 using CampEventos.Persistence.Contextos;
 using CampEventos.Persistence.Contratos;
+using CampEventos.Persistence.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CampEventos.Persistence
@@ -18,11 +19,14 @@ namespace CampEventos.Persistence
             _context = context;
             //_context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
-        public async Task<Evento[]> GetAllEventosAsync(int userId, bool includeApresentadores = false)
+        public async Task<PageList<Evento>> GetAllEventosAsync(int userId,
+         PageParams pageParams, 
+         bool includeApresentadores = false)
+         
         {
             IQueryable<Evento> query = _context.Eventos
-                    .Include(e => e.Lotes)
-                    .Include(e => e.RedesSociais);
+                .Include(e => e.Lotes)
+                .Include(e => e.RedesSociais);
 
             if (includeApresentadores)
             {
@@ -31,33 +35,27 @@ namespace CampEventos.Persistence
                     .ThenInclude(ape => ape.Apresentador);
             }
 
-                    query = query.AsNoTracking()
-                                 .Where(e => e.UserId == userId)
-                                 .OrderBy(e =>e.Id);
+            query = query
+                .AsNoTracking()
+                .Where(e => e.UserId == userId);
 
-                    return await query.ToArrayAsync();
-        }           
-
-        public async Task<Evento[]> GetAllEventosByTemaAsync(int userId, string tema, bool includeEventos)
-        {
-            IQueryable<Evento> query = _context.Eventos
-                    .Include(e => e.Lotes)
-                    .Include(e => e.RedesSociais);
-
-            if (includeEventos)
+            if (!string.IsNullOrWhiteSpace(pageParams.Term))
             {
-                query = query
-                    .Include(e => e.ApresentadoresEventos)
-                    .ThenInclude(ape => ape.Apresentador);
+                query = query.Where(e =>
+                    e.Tema.ToLower().Contains(pageParams.Term.ToLower()) ||
+                    e.Local.ToLower().Contains(pageParams.Term.ToLower())
+                );
             }
 
-                    query = query.AsNoTracking().OrderBy(e =>e.Id)
-                                 .Where(e => e.Tema.ToLower().Contains(tema.ToLower()) && 
-                                 e.UserId == userId);
+            query = query.OrderBy(e => e.Id);
 
-                    return await query.ToArrayAsync();
-            
-        }
+            return await PageList<Evento>.CreateAsync(
+                query,
+                pageParams.PageNumber,
+                pageParams.PageSize
+            );
+        }           
+
         public async Task<Evento> GetEventoByIdAsync(int userId, int eventoId, bool includeApresentadores)
         {
             IQueryable<Evento> query = _context.Eventos

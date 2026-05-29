@@ -137,7 +137,8 @@ namespace CampEventos.API
             app.UseCors(x =>
              x.AllowAnyHeader()
                .AllowAnyMethod()
-                .AllowAnyOrigin());
+                .AllowAnyOrigin()
+                 .WithExposedHeaders("Pagination"));
                 
             app.UseAuthentication();
             app.UseAuthorization();
