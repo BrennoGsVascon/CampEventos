@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CampEventos.Domain;
+using CampEventos.Persistence.Models;
 
 namespace CampEventos.Persistence.Contratos
 {
-    public interface IApresentadorPersist
+    public interface IApresentadorPersist : IGeralPersist
     {
-        //Apresentadores
-
-        Task<Apresentador[]> GetAllApresentadoresAsync (bool includeEventos);
-        Task<Apresentador[]> GetAllApresentadoresByNomeAsync (string nome, bool includeEventos);
-        Task<Apresentador> GetApresentadorByIdAsync (int apresentadorId, bool includeEventos);
+        
+        Task<PageList<Apresentador>> GetAllApresentadoresAsync (PageParams pageParams, bool includeEventos = false);
+        Task<Apresentador> GetApresentadorByUserIdAsync (int userId, bool includeEventos = false);
     }
 }

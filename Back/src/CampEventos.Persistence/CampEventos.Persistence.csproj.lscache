@@ -59,6 +59,7 @@ Contratos/
  IEventoPersist.cs
  IGeralPersist.cs
  ILotePersist.cs
+ IRedeSocialPersist.cs
  IUserPersist.cs
 EventoPersist.cs
 GeralPersist.cs
@@ -79,6 +80,7 @@ Models/
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs
  CampEventos.Persistence.AssemblyInfo.cs
+RedeSocialPersist.cs
 UserPersist.cs
 
 [metadataReferences]

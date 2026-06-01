@@ -1,26 +1,28 @@
+
 using CampEventos.Application;
 using CampEventos.Application.Contratos;
 using CampEventos.Persistence;
 using CampEventos.Persistence.Contextos;
 using CampEventos.Persistence.Contratos;
+using CampEventos.Domain.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Microsoft.IdentityModel.Tokens;
 using AutoMapper;
 using System;
-using Microsoft.Extensions.FileProviders;
 using System.IO;
-using System.Text.Json.Serialization;
-using CampEventos.Domain.Identity;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
+using CampEventos.API.Helpers;
 
 namespace CampEventos.API
 {
@@ -76,13 +78,19 @@ namespace CampEventos.API
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+            services.AddScoped<IUtil, Util>();
+
             services.AddScoped<IEventoService, EventoService>();
+            services.AddScoped<IApresentadorService, ApresentadorService>();
+            services.AddScoped<IRedeSocialService, RedeSocialService>();
             services.AddScoped<ILoteService, LoteService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IAccountService, AccountService>();
             
             services.AddScoped<IGeralPersist, GeralPersist>();
             services.AddScoped<IEventoPersist, EventoPersist>();
+            services.AddScoped<IApresentadorPersist, ApresentadorPersist>();
+            services.AddScoped<IRedeSocialPersist, RedeSocialPersist>();
             services.AddScoped<ILotePersist, LotePersist>();
             services.AddScoped<IUserPersist, UserPersist>();
 

@@ -6,7 +6,7 @@ using CampEventos.Domain;
 using CampEventos.Domain.Identity;
 using CampEventos.Domain.Enum;
 
-namespace CampEventos.Application.helpers
+namespace CampEventos.Application.Helpers
 {
     public class CampEventosProfile : Profile
     {
@@ -39,11 +39,13 @@ namespace CampEventos.Application.helpers
                         : Enum.Parse<Funcao>(src.Funcao)
                 ));
 
-            CreateMap<RedeSocial, RedeSocialDto>().ReverseMap();
             CreateMap<Apresentador, ApresentadorDto>().ReverseMap();
+            CreateMap<Apresentador, ApresentadorAddDto>().ReverseMap();
+            CreateMap<Apresentador, ApresentadorUpdateDto>().ReverseMap();
+
+            CreateMap<RedeSocial, RedeSocialDto>().ReverseMap();
             CreateMap<User, UserDto>().ReverseMap();
             CreateMap<User, UserLoginDto>().ReverseMap();
-            CreateMap<User, UserUpdateDto>().ReverseMap();
         }
 
         private static string FormatDateTime(DateTime? date)

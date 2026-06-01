@@ -8,5 +8,6 @@ namespace CampEventos.Domain.Enum
         Atleta,
         Fotografo,
         Patrocinador,
+        Apresentador
     }
 }

@@ -5,14 +5,10 @@ using System.Threading.Tasks;
 
 namespace CampEventos.Application.Dtos
 {
-    public class ApresentadorDto
+    public class ApresentadorAddDto
     {
         public int Id { get; set; }
-        public string MiniCurriculo  { get; set; }
+        public string MiniCurriculo { get; set; }
         public int UserId { get; set; }
-
-        public UserDto User { get; set; }
-        public IEnumerable<RedeSocialDto> RedesSociais  { get; set; }
-       
     }
 }

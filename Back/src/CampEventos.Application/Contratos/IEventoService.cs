@@ -10,7 +10,7 @@ namespace CampEventos.Application.Contratos
         Task<EventoDto> UpdateEvento(int userId, int eventoId, EventoDto model);
         Task<bool> DeleteEvento(int userId, int eventoId);
 
-        Task<PageList<EventoDto>> GetAllEventosAsync(int userId, PageParams pageParams, bool includePalestrantes = false);
+        Task<PageList<EventoDto>> GetAllEventosAsync(int userId, PageParams pageParams, bool includeApresentadores = false);
         Task<EventoDto> GetEventoByIdAsync (int userId, int eventoId, bool includeApresentadores = false);
     }
 }

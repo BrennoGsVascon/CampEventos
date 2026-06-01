@@ -54,11 +54,16 @@ TemporaryDependencyNodeTargetIdentifier=net5.0
 [sourceFiles]
 Controllers/
  AccountController.cs
+ ApresentadorController.cs
  EventoController.cs
  LotesController.cs
+ RedesSociaisController.cs
 Extensions/
  ClaimsPrincipalExtensions.cs
  Pagination.cs
+Helpers/
+ IUtil.cs
+ Util.cs
 Models/PaginationHeader.cs
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs

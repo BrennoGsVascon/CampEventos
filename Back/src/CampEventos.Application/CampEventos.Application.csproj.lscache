@@ -53,13 +53,18 @@ TemporaryDependencyNodeTargetIdentifier=net5.0
 
 [sourceFiles]
 AccountService.cs
+ApresentadorService.cs
 Contratos/
  IAccountService.cs
+ IApresentadorService.cs
  IEventoService.cs
  ILoteService.cs
+ IRedeSocialService.cs
  ITokenService.cs
 Dtos/
+ ApresentadorAddDto.cs
  ApresentadorDto.cs
+ ApresentadorUpdateDto.cs
  EventoDto.cs
  LoteDto.cs
  RedeSocialDto.cs
@@ -72,6 +77,7 @@ LoteService.cs
 obj/Debug/net5.0/
  .NETCoreApp,Version=v5.0.AssemblyAttributes.cs
  CampEventos.Application.AssemblyInfo.cs
+RedeSocialService.cs
 TokenService.cs
 
 [metadataReferences]
